@@ -2,6 +2,8 @@ const styles = {
     boxWidth: "xl:max-w-[1140px] w-full",
     boxContent: "xl:max-w-[1440px] w-full",
 
+    btnStyle1: "w-[180px] h-[55px] bg-darkBlue text-white rounded btn-shadow",
+
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",
 

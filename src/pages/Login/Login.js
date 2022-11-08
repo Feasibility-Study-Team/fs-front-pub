@@ -1,15 +1,16 @@
 import { styles } from "../../constant"
 import LoginLeft from "./LoginLeft"
+import LoginRight from "./LoginRight"
 
 const Login = () => {
     return (
         <div className={`w-full overflow-hidden ${styles.flexCenter}`}>
-            <div className={`${styles.boxContent} flex`}>
+            <div className={`flex`}>
                 <section className="flex-1 bg-placeholder">
                     <LoginLeft />
                 </section>
                 <section className="flex-1">
-                    <p>123</p>
+                    <LoginRight />
                 </section>
             </div>
         </div>
