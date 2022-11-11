@@ -3,10 +3,11 @@ import { styles } from "../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const LoginRight = () => {
     const loginStyle = {
-        inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-[250px] max-h-[38px]",
+        inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-[250px] max-h-[38px] focus:outline-blue-600",
         stripStyle: "border-solid border border-black w-[125px] h-0",
         errorStyle: "font-normal text-red-500"
     }
@@ -43,7 +44,7 @@ const LoginRight = () => {
                     <input 
                     type="text" 
                     placeholder="username" 
-                    className={`${loginStyle.inputStyle} ${formik.errors.username ? 'mb-[5px]': 'mb-[20px]'}`} 
+                    className={`${loginStyle.inputStyle} ${formik.errors.username && formik.touched.username ? 'mb-[5px]': 'mb-[20px]'}`} 
                     {...formik.getFieldProps('username')}
                     />
                     {formik.touched.username && formik.errors.username && <div className={`${loginStyle.errorStyle} mb-[10px]`}>{formik.errors.username}</div>}
@@ -51,7 +52,7 @@ const LoginRight = () => {
                     <input 
                     type="password" 
                     placeholder="password" 
-                    className={`${loginStyle.inputStyle}  ${formik.errors.password ? 'mb-[5px]': 'mb-[20px]'}`} 
+                    className={`${loginStyle.inputStyle}  ${formik.errors.password && formik.touched.password ? 'mb-[5px]': 'mb-[20px]'}`} 
                     {...formik.getFieldProps('password')}
                     />
                     {formik.touched.password && formik.errors.password && <div className={`${loginStyle.errorStyle}`}>{formik.errors.password}</div>}
@@ -65,7 +66,7 @@ const LoginRight = () => {
                     <img src={Gmail} alt="gmail"/>
                     <p className="font-bold text-xl">Login with Gmail</p>
                 </button>
-                <button className="font-light">Don't have an account yet? Sign Up</button>
+                <Link to="/register" className="font-light hover:underline hover:underline-offset-4">Don't have an account yet? Sign Up</Link>
             </div>
 
         </div>
