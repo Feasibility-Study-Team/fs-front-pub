@@ -6,8 +6,12 @@ import { useState } from "react"
 import { phoneRegExp } from "../../constant/variable"
 import { Link } from "react-router-dom"
 import LoginLeft from "../Login/LoginLeft"
+import { BsEye, BsEyeSlash } from "react-icons/bs"
+
 
 const Register = () => {
+    const [show, setShow] = useState(false)
+
     const dataInstitusi = [
         {
             name: "UPN Veteran Yogyakarta",
@@ -20,7 +24,7 @@ const Register = () => {
     ]
 
     const registerStyle = {
-        inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-full max-h-[38px] focus:outline-blue-600",
+        inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-full max-h-[38px] focus:outline-none",
         stripStyle: "border-solid border border-black w-[125px] h-0",
         errorStyle: "font-normal text-red-500"
     }
@@ -77,7 +81,7 @@ const Register = () => {
                             <input
                                 type="text"
                                 placeholder="username"
-                                className={`${registerStyle.inputStyle} ${formik.errors.username && formik.touched.username? 'mb-[5px]' : 'mb-[20px]'}`}
+                                className={`${registerStyle.inputStyle} ${formik.errors.username && formik.touched.username ? 'mb-[5px]' : 'mb-[20px]'}`}
                                 {...formik.getFieldProps('username')}
                             />
                             {formik.touched.username && formik.errors.username && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.username}</div>}
@@ -95,11 +99,11 @@ const Register = () => {
                                 {...formik.getFieldProps('institution')}
                             >
                                 <option value="" hidden>institusi</option>
-                                {dataInstitusi && dataInstitusi.map((item, index)=>(
+                                {dataInstitusi && dataInstitusi.map((item, index) => (
                                     <option key={index} value={item.name}>{item.name}</option>
                                 ))}
                             </select>
-                           
+
                             {formik.touched.institution && formik.errors.institution && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.institution}</div>}
 
                             <input
@@ -118,12 +122,15 @@ const Register = () => {
                             />
                             {formik.touched.phone_number && formik.errors.phone_number && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.phone_number}</div>}
 
-                            <input
-                                type="password"
-                                placeholder="password"
-                                className={`${registerStyle.inputStyle}  ${formik.errors.password && formik.touched.password ? 'mb-[5px]' : 'mb-[20px]'}`}
-                                {...formik.getFieldProps('password')}
-                            />
+                            <div className={`${registerStyle.inputStyle} flex items-center justify-between  ${formik.errors.password && formik.touched.password ? 'mb-[5px]' : 'mb-[20px]'}`}>
+                                <input
+                                    className="outline-none border-none"
+                                    type={show ? 'text' : 'password'}
+                                    placeholder="password"
+                                    {...formik.getFieldProps('password')}
+                                />
+                                <span className="cursor-pointer opacity-0.5" onClick={() => setShow(!show)}>{show ? <BsEyeSlash /> : <BsEye />}</span>
+                            </div>
                             {formik.touched.password && formik.errors.password && <div className={`${registerStyle.errorStyle}`}>{formik.errors.password}</div>}
                             {error && <div className={`${registerStyle.errorStyle}`}>{error}</div>}
                             <button className={`${styles.btnStyle1} mt-8`} type="submit">Register</button>

@@ -1,17 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Footer } from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login, Register } from "./pages";
+import { Dashboard } from "./pages/Admin";
 
 function App() {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="admin" element={<Dashboard />} />
         </Routes>
-      </Router>
-      <Footer />
+      </BrowserRouter>
     </>
   );
 }
