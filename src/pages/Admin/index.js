@@ -1,5 +1,8 @@
-import Dashboard from "./Dashboard/Dashboard";
+import LayoutAdmin from "./LayoutAdmin/LayoutAdmin";
+import DataPenguji from "./DataPenguji/DataPenguji";
+
 
 export{
-    Dashboard
+    LayoutAdmin,
+    DataPenguji
 }

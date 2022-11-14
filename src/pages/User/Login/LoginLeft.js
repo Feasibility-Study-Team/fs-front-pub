@@ -1,5 +1,5 @@
-import { Alat1 } from "../../assets"
-import { styles } from "../../constant"
+import { Alat1 } from "../../../assets"
+import { styles } from "../../../constant"
 
 const LoginLeft = () => {
     return (

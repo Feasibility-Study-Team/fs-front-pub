@@ -1,17 +1,29 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login, Register } from "./pages";
-import { Dashboard } from "./pages/Admin";
+import { Routes, Route } from "react-router-dom";
+import { LayoutUser, Login, Register } from "./pages/User";
+import { DataPenguji, LayoutAdmin } from "./pages/Admin";
+import ProtectedAdminRoute from "./ProtectedAdminRoute";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
+      <Routes>
+        <Route path="/" element={<LayoutUser />}>
+          <Route index element={<p>Homepage</p>} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="admin" element={<Dashboard />} />
-        </Routes>
-      </BrowserRouter>
+        </Route>
+
+        <Route path="/admin/login" element={<p>admin Login</p>} />
+        <Route element={<ProtectedAdminRoute />}>
+          <Route path="/admin" element={<LayoutAdmin />}>
+            <Route index element={<p>Overview</p>} />
+            <Route path="penguji" element={<DataPenguji />} />
+            <Route path="inventor" element={<p>Inventor</p>} />
+            <Route path="alat" element={<p>Alat</p>} />
+          </Route>
+        </Route>
+
+      </Routes>
     </>
   );
 }

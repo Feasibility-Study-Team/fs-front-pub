@@ -9,6 +9,11 @@ module.exports = {
         primary: "#032539",
         placeholder: "#F5F5F5",
         darkBlue: "#032539",
+        sidebar: "#363740",
+        sbactive: "#41424C",
+        sbactivetext: "#DDE2FF",
+        adminholder: "#F7F8FC",
+        sbtext: "#A4A6B3",
         iris100: "#5D5FEF",
       }
     },

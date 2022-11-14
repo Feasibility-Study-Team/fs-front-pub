@@ -1,4 +1,4 @@
-import { styles } from "../../constant"
+import { styles } from "../../../constant"
 import LoginLeft from "./LoginLeft"
 import LoginRight from "./LoginRight"
 

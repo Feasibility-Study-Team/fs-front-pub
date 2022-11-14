@@ -1,12 +1,12 @@
-import { Gmail } from "../../assets"
-import { styles } from "../../constant"
+import { Gmail } from "../../../assets"
+import { styles } from "../../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useState } from "react"
-import { phoneRegExp } from "../../constant/variable"
 import { Link } from "react-router-dom"
 import LoginLeft from "../Login/LoginLeft"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
+import { phoneRegExp } from "../../../constant/variable"
 
 
 const Register = () => {
