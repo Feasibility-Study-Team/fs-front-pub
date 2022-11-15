@@ -8,6 +8,8 @@ module.exports = {
       colors: {
         primary: "#032539",
         placeholder: "#F5F5F5",
+        card: "#EDEEF2",
+        cardtext: "#0A083A",
         darkBlue: "#032539",
         sidebar: "#363740",
         sbactive: "#41424C",

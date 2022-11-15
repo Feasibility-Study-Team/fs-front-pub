@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { LayoutUser, Login, Register } from "./pages/User";
-import { DataPenguji, LayoutAdmin, AdminLogin, DataInventor } from "./pages/Admin";
+import { DataPenguji, LayoutAdmin, AdminLogin, DataInventor, DataAlat, EditInventor, EditPenguji, DetailAlat, DetailDataAlat, FeasibilityAlat } from "./pages/Admin";
 import ProtectedAdminRoute from "./ProtectedAdminRoute";
-import EditPenguji from "./pages/Admin/DataPenguji/EditPenguji";
-import EditInventor from "./pages/Admin/DataInventor/EditInventor";
 
 function App() {
   return (
@@ -23,7 +21,11 @@ function App() {
             <Route path="penguji/:id" element={<EditPenguji />} />
             <Route path="inventor" element={<DataInventor />} />
             <Route path="inventor/:id" element={<EditInventor />} />
-            <Route path="alat" element={<p>Alat</p>} />
+            <Route path="alat" element={<DataAlat />} />
+            <Route path="alat/:id" element={<DetailAlat />}>
+              <Route index element={<DetailDataAlat />} />
+              <Route path="feasibility" element={<FeasibilityAlat />} />
+            </Route>
           </Route>
         </Route>
 
