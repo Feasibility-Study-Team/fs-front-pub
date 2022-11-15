@@ -13,6 +13,9 @@ module.exports = {
         sbactive: "#41424C",
         sbactivetext: "#DDE2FF",
         adminholder: "#F7F8FC",
+        admintext: "#252733",
+        tablehead: "#9FA2B4",
+        tablehover: "#DFE0EB",
         sbtext: "#A4A6B3",
         iris100: "#5D5FEF",
       }

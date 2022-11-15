@@ -2,6 +2,11 @@ const styles = {
     boxWidth: "xl:max-w-[1140px] w-full",
     boxContent: "xl:max-w-[1440px] w-full",
     boxMd: "md:max-w-[768px] w-full",
+    adminStyle: "py-10 px-8 flex flex-col w-full",
+
+    editFormContent: "flex flex-row gap-4 items-start",
+    editLabel: "w-24",
+    editInput: "h-8 w-96",
 
     btnStyle1: "w-[180px] h-[55px] bg-darkBlue text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
 
