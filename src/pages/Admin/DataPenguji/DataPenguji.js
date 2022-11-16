@@ -1,66 +1,51 @@
+import { useEffect, useState } from "react"
 import { Profile } from "../../../assets"
-import { HeaderAdmin, TableAdmin } from "../../../components"
+import { HapusModal, HeaderAdmin, TableAdmin } from "../../../components"
 import { styles } from "../../../constant"
+import api from "../../../controller/adminController"
 
 const DataPenguji = () => {
-  const dataPenguji = {
-    data: [
-      {
-        id: 1,
-        icon: Profile,
-        username: "Cruise.Tom",
-        nama_lengkap: "Tom Cruise",
-        email: "tomcruise123@gmail.com",
-        institusi: "PT Intan Setiawan",
-        phone_number: "089123453617",
-      },
-      {
-        id: 2,
-        icon: Profile,
-        username: "AngelinaJolie123",
-        nama_lengkap: "Angelina Jolie",
-        email: "jolieangeline123@gmail.com",
-        institusi: "Harvard University",
-        phone_number: "085623453617",
-      },
-      {
-        id: 3,
-        icon: Profile,
-        username: "Owen.Hargeves",
-        nama_lengkap: "Owen Hargeves Yurinko",
-        email: "owenowen453@gmail.com",
-        institusi: "Petroleum University",
-        phone_number: "085623453617",
-      },
-      {
-        id: 4,
-        icon: Profile,
-        username: "Ernestowilliam44",
-        nama_lengkap: "Ernesto William Xavier",
-        email: "ernesto123@gmail.com",
-        institusi: "Petroleum University",
-        phone_number: "085623453617",
-      },
-      {
-        id: 5,
-        icon: Profile,
-        username: "Wir.ahmad",
-        nama_lengkap: "Ahmad Nawir",
-        email: "wirnawir123@yahoo.com",
-        institusi: "UPN Veteran Yogyakarta",
-        phone_number: "0877623453617",
-      }
-    ],
-    page: "1",
-    last_page: "5",
-    pagination_prev: true,
-    pagination_next: false
+  const [data, setData] = useState(null)
+  const [openModal, setOpenModal] = useState(false)
+  const [idHapus, setIdHapus] = useState(null)
+  
+  useEffect(() => {
+    api.getPenguji()
+      .then((res) => {
+        console.log(res)
+        setData(res);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
+  const handleModal = (id) => {
+    setOpenModal(true)
+    console.log(id)
+    setIdHapus(id)
   }
+
+  const handlerHapus = () => {
+    console.log(`menghapus id ${idHapus}`)
+    setOpenModal(false)
+  }
+
+  // const dataPenguji = {
+  //   data: [],
+  //   page: "1",
+  //   last_page: "5",
+  //   pagination_prev: true,
+  //   pagination_next: false
+  // }
   return (
-    <div className={`${styles.adminStyle}`}>
-      <HeaderAdmin title="Data Penguji" name="Muhammad Harsin" icon={Profile} />
-      <TableAdmin title="Tabel Penguji" res={dataPenguji} />
-    </div>
+    <>
+      <HapusModal open={openModal} onClose={()=>setOpenModal(false)} handlerHapus={handlerHapus} />
+      <div className={`${styles.adminStyle}`}>
+        <HeaderAdmin title="Data Penguji" name="Muhammad Harsin" icon={Profile} />
+        {data && <TableAdmin title="Tabel Penguji" res={data} handleModal={handleModal}/>}
+      </div>
+    </>
   )
 }
 

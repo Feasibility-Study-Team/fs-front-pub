@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+import HapusModal from "./HapusModal";
 import HeaderAdmin from "./HeaderAdmin";
 import Sidebar from "./Sidebar";
 import TableAdmin from "./TableAdmin";
@@ -9,5 +10,6 @@ export{
     Sidebar,
     HeaderAdmin,
     TableAdmin,
-    TableAlat
+    TableAlat,
+    HapusModal
 }

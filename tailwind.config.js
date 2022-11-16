@@ -16,6 +16,7 @@ module.exports = {
         sbactivetext: "#DDE2FF",
         adminholder: "#F7F8FC",
         admintext: "#252733",
+        detailtext: "#717171",
         tablehead: "#9FA2B4",
         tablehover: "#DFE0EB",
         sbtext: "#A4A6B3",

@@ -26,17 +26,17 @@ const TableAlat = ({ res, title }) => {
                     {res?.data && res?.data.map((item, index) => (
                         <tr className="bg-white hover:bg-tablehover font-semibold text-admintext border-b border-tablehover" key={index}>
                             <th scope="row" className="py-4 px-6 flex items-center gap-2 font-semibold">
-                                <img src={item?.icon} alt="profile" className="w-10 h-10" />
+                                <img src={item?.gambar_alat} alt="profile" className="w-10 h-10 rounded-full" />
                                 {item?.nama_alat}
                             </th>
                             <td className="py-4 px-6">
-                                {item?.nama_inventor}
+                                {item?.id_inventor}
                             </td>
                             <td className="py-4 px-6">
                                 {item?.instansi}
                             </td>
                             <td className="py-4 px-6">
-                                <Link to={`${item?.id}`}><button className="h-8 w-32 rounded-full bg-[#EA760B] hover:bg-tablehover hover:border-[#EA760B] hover:border-2 hover:text-[#EA760B] text-white uppercase">Lihat Detail</button></Link>
+                                <Link to={`${item?.id_alat}`}><button className="h-8 w-32 rounded-full bg-[#EA760B] hover:bg-tablehover hover:border-[#EA760B] hover:border-2 hover:text-[#EA760B] text-white uppercase">Lihat Detail</button></Link>
                             </td>
                         </tr>
                     ))}

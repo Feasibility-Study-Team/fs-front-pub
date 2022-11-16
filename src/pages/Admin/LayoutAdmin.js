@@ -6,7 +6,7 @@ const LayoutAdmin = () => {
         <>
             <div className="flex overflow-hidden h-screen w-full">
                 <Sidebar />
-                <main className='h-screen overflow-hidden w-full bg-adminholder'>
+                <main className='h-screen overflow-x-hidden overflow-y-scroll w-full bg-adminholder'>
                     <Outlet />
                 </main>
             </div>
