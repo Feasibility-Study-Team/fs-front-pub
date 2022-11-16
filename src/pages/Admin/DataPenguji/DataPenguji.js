@@ -8,7 +8,7 @@ const DataPenguji = () => {
   const [data, setData] = useState(null)
   const [openModal, setOpenModal] = useState(false)
   const [idHapus, setIdHapus] = useState(null)
-  
+
   useEffect(() => {
     api.getPenguji()
       .then((res) => {
@@ -27,7 +27,21 @@ const DataPenguji = () => {
   }
 
   const handlerHapus = () => {
-    console.log(`menghapus id ${idHapus}`)
+    console.log(`menghapus penguji id ${idHapus}`)
+    api.deletePenguji(idHapus)
+      .then(() => {
+        api.getPenguji()
+          .then((res) => {
+            console.log(res)
+            setData(res);
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
     setOpenModal(false)
   }
 
@@ -40,10 +54,10 @@ const DataPenguji = () => {
   // }
   return (
     <>
-      <HapusModal open={openModal} onClose={()=>setOpenModal(false)} handlerHapus={handlerHapus} />
+      <HapusModal open={openModal} onClose={() => setOpenModal(false)} handlerHapus={handlerHapus} />
       <div className={`${styles.adminStyle}`}>
         <HeaderAdmin title="Data Penguji" name="Muhammad Harsin" icon={Profile} />
-        {data && <TableAdmin title="Tabel Penguji" res={data} handleModal={handleModal}/>}
+        {data && <TableAdmin title="Tabel Penguji" res={data} handleModal={handleModal} />}
       </div>
     </>
   )

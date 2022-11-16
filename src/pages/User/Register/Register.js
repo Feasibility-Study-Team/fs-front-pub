@@ -3,10 +3,11 @@ import { styles } from "../../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import LoginLeft from "../Login/LoginLeft"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { phoneRegExp } from "../../../constant/variable"
+import api from "../../../controller/inventorController"
 
 
 const Register = () => {
@@ -14,10 +15,12 @@ const Register = () => {
 
     const dataInstitusi = [
         {
+            id: 1,
             name: "UPN Veteran Yogyakarta",
             address: "Babarsari"
         },
         {
+            id: 2,
             name: "UPN Veteran Jakarta",
             address: "Jakarta"
         }
@@ -29,23 +32,32 @@ const Register = () => {
         errorStyle: "font-normal text-red-500"
     }
     const [error, setError] = useState(null)
+    const navigate = useNavigate()
 
     const doRegist = (values) => {
+        setError(null)
         formik.setSubmitting(false);
         formik.resetForm();
         console.log(values);
-        setError("Gagal Mendaftar")
+        api.createInventor(values)
+            .then((res) => {
+                console.log(res)
+                navigate("/")
+            })
+            .catch((err) => {
+                console.log(err)
+                setError("Gagal Mendaftar")
+            })
     }
 
     const formik = useFormik({
         initialValues: {
             username: '',
             password: '',
-            complete_name: '',
-            institution: '',
+            nama_lengkap: '',
+            id_institusi: '',
             email: '',
-            phone_number: '',
-            agreement: false
+            nomor: '',
         },
 
         validationSchema: Yup.object({
@@ -53,17 +65,16 @@ const Register = () => {
                 .required('Username harus di isi'),
             password: Yup.string()
                 .required('Password harus di isi'),
-            complete_name: Yup.string()
+            nama_lengkap: Yup.string()
                 .required('Nama lengkap harus di isi'),
-            institution: Yup.string()
+            id_institusi: Yup.string()
                 .required('Institusi harus di isi'),
             email: Yup.string()
                 .required('Tidak boleh kosong')
                 .email('Format email tidak valid'),
-            phone_number: Yup.string()
+            nomor: Yup.string()
                 .required('Tidak boleh kosong')
                 .matches(phoneRegExp, 'Nomer HP tidak valid'),
-            agreement: Yup.bool()
         }),
 
         onSubmit: doRegist
@@ -89,22 +100,22 @@ const Register = () => {
                             <input
                                 type="text"
                                 placeholder="nama lengkap"
-                                className={`${registerStyle.inputStyle} ${formik.errors.complete_name && formik.touched.complete_name ? 'mb-[5px]' : 'mb-[20px]'}`}
-                                {...formik.getFieldProps('complete_name')}
+                                className={`${registerStyle.inputStyle} ${formik.errors.nama_lengkap && formik.touched.nama_lengkap ? 'mb-[5px]' : 'mb-[20px]'}`}
+                                {...formik.getFieldProps('nama_lengkap')}
                             />
-                            {formik.touched.complete_name && formik.errors.complete_name && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.complete_name}</div>}
+                            {formik.touched.nama_lengkap && formik.errors.nama_lengkap && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.nama_lengkap}</div>}
 
                             <select
-                                className={`${registerStyle.inputStyle} ${formik.errors.institution && formik.touched.institution ? 'mb-[5px]' : 'mb-[20px]'} ${formik.values.institution === "" ? "text-[#999]" : ""}`}
-                                {...formik.getFieldProps('institution')}
+                                className={`${registerStyle.inputStyle} ${formik.errors.id_institusi && formik.touched.id_institusi ? 'mb-[5px]' : 'mb-[20px]'} ${formik.values.id_institusi === "" ? "text-[#999]" : ""}`}
+                                {...formik.getFieldProps('id_institusi')}
                             >
                                 <option value="" hidden>institusi</option>
                                 {dataInstitusi && dataInstitusi.map((item, index) => (
-                                    <option key={index} value={item.name}>{item.name}</option>
+                                    <option key={index} value={item.id}>{item.name}</option>
                                 ))}
                             </select>
 
-                            {formik.touched.institution && formik.errors.institution && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.institution}</div>}
+                            {formik.touched.id_institusi && formik.errors.id_institusi && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.id_institusi}</div>}
 
                             <input
                                 type="text"
@@ -117,10 +128,10 @@ const Register = () => {
                             <input
                                 type="text"
                                 placeholder="no. hp"
-                                className={`${registerStyle.inputStyle} ${formik.errors.phone_number && formik.touched.phone_number ? 'mb-[5px]' : 'mb-[20px]'}`}
-                                {...formik.getFieldProps('phone_number')}
+                                className={`${registerStyle.inputStyle} ${formik.errors.nomor && formik.touched.nomor ? 'mb-[5px]' : 'mb-[20px]'}`}
+                                {...formik.getFieldProps('nomor')}
                             />
-                            {formik.touched.phone_number && formik.errors.phone_number && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.phone_number}</div>}
+                            {formik.touched.nomor && formik.errors.nomor && <div className={`${registerStyle.errorStyle} mb-[10px]`}>{formik.errors.nomor}</div>}
 
                             <div className={`${registerStyle.inputStyle} flex items-center justify-between  ${formik.errors.password && formik.touched.password ? 'mb-[5px]' : 'mb-[20px]'}`}>
                                 <input

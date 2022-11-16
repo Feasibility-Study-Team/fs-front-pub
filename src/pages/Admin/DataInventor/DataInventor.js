@@ -28,6 +28,20 @@ const DataInventor = () => {
 
   const handlerHapus = () => {
     console.log(`menghapus id ${idHapus}`)
+    api.deleteInventor(idHapus)
+      .then(() => {
+        api.getInventor()
+          .then((res) => {
+            console.log(res)
+            setData(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
     setOpenModal(false)
   }
 
