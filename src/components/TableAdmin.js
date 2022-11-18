@@ -33,7 +33,7 @@ const TableAdmin = ({ res, title, handleModal }) => {
                         {res?.data && res?.data.map((item, index) => (
                             <tr className="bg-white hover:bg-tablehover font-semibold text-admintext border-b border-tablehover" key={index}>
                                 <th scope="row" className="py-4 px-6 flex items-center gap-2 font-semibold">
-                                    <img src={item?.icon} alt="profile" className="w-10 h-10" />
+                                    <img src={item?.photo} alt="profile" className="w-10 h-10 rounded-full" />
                                     {item?.username}
                                 </th>
                                 <td className="py-4 px-6">

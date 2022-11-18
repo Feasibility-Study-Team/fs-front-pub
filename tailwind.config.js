@@ -21,6 +21,9 @@ module.exports = {
         tablehover: "#DFE0EB",
         sbtext: "#A4A6B3",
         iris100: "#5D5FEF",
+        textpending: "#C5221F",
+        textreview: "#FA991C",
+        textdone: "#02BE83"
       }
     },
   },

@@ -1,13 +1,15 @@
-import {Outlet } from "react-router-dom";
-import { Footer } from "../../../components";
-
+import { Outlet } from "react-router-dom";
+import { Footer, Header } from "../../../components";
 
 function LayoutUser() {
 
     return (
         <>
-            <Outlet />
-            <Footer />
+            <div className="w-full overflow-hidden">
+                <Header />
+                <Outlet />
+                <Footer />
+            </div>
         </>
 
     )

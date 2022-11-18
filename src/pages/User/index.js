@@ -1,9 +1,21 @@
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import LayoutUser from "./LayoutUser/LayoutUser";
+import Inventor from "./ProtectedInventor/Inventor";
+import InventorProfile from "./ProtectedInventor/InventorProfile";
+import InventorFeasibilityStatus from "./ProtectedInventor/InventorFeasibility/InventorFeasibilityStatus";
+import InventorFeasibilityItem from "./ProtectedInventor/InventorFeasibility/InventorFeasibilityItem";
+import InventorProjectData from "./ProtectedInventor/InventorProject/InventorProjectData";
+import InventorProject from "./ProtectedInventor/InventorProject/InventorProject";
 
-export{
+export {
     Login,
     Register,
-    LayoutUser
+    LayoutUser,
+    Inventor,
+    InventorProfile,
+    InventorFeasibilityStatus,
+    InventorFeasibilityItem,
+    InventorProjectData,
+    InventorProject
 }
