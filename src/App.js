@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Inventor, InventorFeasibilityItem, InventorFeasibilityStatus, InventorProfile, InventorProject, InventorProjectData, LayoutUser, Login, Register } from "./pages/User";
+import { About, Homepage, Inventor, InventorFeasibilityItem, InventorFeasibilityStatus, InventorProfile, InventorProject, InventorProjectData, LayoutUser, Login, Product, Products, Register } from "./pages/User";
 import { DataPenguji, LayoutAdmin, AdminLogin, DataInventor, DataAlat, EditInventor, EditPenguji, DetailAlat, DetailDataAlat, FeasibilityAlat } from "./pages/Admin";
 import ProtectedAdminRoute from "./ProtectedAdminRoute";
 import ProtectedUserRoute from "./ProtectedUserRoute";
@@ -9,13 +9,16 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LayoutUser />}>
-          <Route index element={<p>Homepage</p>} />
+          <Route index element={<Homepage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="about" element={<About />} />
+          <Route path="product" element={<Products />}/>
+          <Route path="product/:id" element={<Product />}/>
 
           <Route element={<ProtectedUserRoute />}>
             <Route path="/inventor/project/:id" element={<InventorProject />}>
-              
+
             </Route>
             <Route path="inventor" element={<Inventor />}>
               <Route path="profile" element={<InventorProfile />} />

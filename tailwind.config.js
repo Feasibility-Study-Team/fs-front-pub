@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "#032539",
+        greyuser: "#6C6B6B",
+        greenuser: "#02BE83",
         placeholder: "#F5F5F5",
         card: "#EDEEF2",
         cardtext: "#0A083A",

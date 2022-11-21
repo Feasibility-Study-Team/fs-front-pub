@@ -35,9 +35,13 @@ const Inventor = () => {
             <div className={styles.boxContent}>
                 <div className="w-full flex flex-row gap-10">
                     <div className="flex basis-1/3 flex-col gap-9">
-                        <div className="w-full bg-card rounded-lg p-6 flex gap-6">
+                        <div className="w-full bg-card rounded-lg p-6 flex gap-6 items-center">
                             <img src={DashboardIcon} alt="Alat" className="h-24 w-24 rounded-full" />
-                            <p className="font-bold text-2xl text-cardtext">{"Testing"}</p>
+                            <div className="flex flex-col gap-1">
+                                <p className="font-bold text-2xl text-cardtext">{"Testing"}</p>
+                                <p className="font-medium text-lg text-cardtext">Inventor</p>
+                            </div>
+
                         </div>
 
                         <div className="w-full bg-card rounded-lg p-6 flex flex-col items-center h-full justify-between">

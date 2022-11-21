@@ -7,6 +7,11 @@ import InventorFeasibilityStatus from "./ProtectedInventor/InventorFeasibility/I
 import InventorFeasibilityItem from "./ProtectedInventor/InventorFeasibility/InventorFeasibilityItem";
 import InventorProjectData from "./ProtectedInventor/InventorProject/InventorProjectData";
 import InventorProject from "./ProtectedInventor/InventorProject/InventorProject";
+import Homepage from "./Homepage";
+import About from "./About";
+import Product from "./Product";
+import Products from "./Products";
+
 
 export {
     Login,
@@ -17,5 +22,9 @@ export {
     InventorFeasibilityStatus,
     InventorFeasibilityItem,
     InventorProjectData,
-    InventorProject
+    InventorProject,
+    Homepage,
+    About,
+    Product,
+    Products
 }

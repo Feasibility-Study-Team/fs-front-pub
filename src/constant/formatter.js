@@ -10,19 +10,29 @@ const colorText = (status) => {
     return "text-textdone"
 }
 
-const colorTest = (number) =>{
-    if(number >= 80){
+const colorTest = (number) => {
+    if (number >= 80) {
         return "text-textdone"
     }
 
-    if(number >=40){
+    if (number >= 40) {
         return "text-textreview"
     }
 
     return "text-textpending"
 }
 
+const rupiahFormatter = (numb) => {
+
+    const format = numb.toString().split('').reverse().join('');
+    const convert = format.match(/\d{1,3}/g);
+    const rupiah = 'Rp' + convert.join('.').split('').reverse().join('') + ',-';
+
+    return rupiah;
+}
+
 export {
     colorText,
-    colorTest
+    colorTest,
+    rupiahFormatter
 }
