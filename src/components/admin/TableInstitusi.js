@@ -1,21 +1,21 @@
 import { GrFormNext, GrFormPrevious } from "react-icons/gr"
 import { Link } from "react-router-dom"
 
-const TableAlat = ({ res, title }) => {
+const TableInstitusi = ({title, res}) => {
     return (
-        <div className="mt-10 shadow-md overflow-x-auto rounded-lg">
+        <div className="mt-4 shadow-md overflow-x-auto rounded-lg">
             <h2 className="p-6 w-full font-bold text-xl bg-white">{title}</h2>
             <table className="w-full text-sm text-left">
                 <thead className="text-sm text-tablehead bg-white border-b-4 border-tablehover">
                     <tr>
                         <th scope="col" className="py-3 px-6">
-                            Nama Alat
+                            Nama
                         </th>
                         <th scope="col" className="py-3 px-6">
-                            Nama Inventor
+                            Alamat
                         </th>
                         <th scope="col" className="py-3 px-6">
-                            Instansi
+                            nomor
                         </th>
                         <th scope="col" className="py-3 px-6">
                             Opsi
@@ -26,17 +26,16 @@ const TableAlat = ({ res, title }) => {
                     {res?.data && res?.data.map((item, index) => (
                         <tr className="bg-white hover:bg-tablehover font-semibold text-admintext border-b border-tablehover" key={index}>
                             <th scope="row" className="py-4 px-6 flex items-center gap-2 font-semibold">
-                                <img src={item?.gambar_alat} alt="profile" className="w-10 h-10 rounded-full" />
-                                {item?.nama_alat}
+                                {item?.nama_institusi || "-"}
                             </th>
                             <td className="py-4 px-6">
-                                {item?.id_inventor}
+                                {item?.alamat || "-"}
                             </td>
                             <td className="py-4 px-6">
-                                {item?.instansi}
+                                {item?.nomor || "-"}
                             </td>
                             <td className="py-4 px-6">
-                                <Link to={`${item?.id_alat}`}><button className="h-8 w-32 rounded-full bg-[#EA760B] hover:bg-tablehover hover:border-[#EA760B] hover:border-2 hover:text-[#EA760B] text-white uppercase">Lihat Detail</button></Link>
+                                <Link to={`${item?.id_institusi}`}><button className="h-8 w-32 rounded-full bg-[#EA760B] hover:bg-tablehover hover:border-[#EA760B] hover:border-2 hover:text-[#EA760B] text-white uppercase">Lihat Detail</button></Link>
                             </td>
                         </tr>
                     ))}
@@ -55,4 +54,4 @@ const TableAlat = ({ res, title }) => {
     )
 }
 
-export default TableAlat
+export default TableInstitusi

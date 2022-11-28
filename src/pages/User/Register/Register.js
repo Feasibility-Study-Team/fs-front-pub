@@ -2,7 +2,7 @@ import { Gmail } from "../../../assets"
 import { styles } from "../../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import LoginLeft from "../Login/LoginLeft"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
@@ -11,6 +11,10 @@ import api from "../../../controller/inventorController"
 
 
 const Register = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const [show, setShow] = useState(false)
 
     const dataInstitusi = [

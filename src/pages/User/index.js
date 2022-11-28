@@ -11,7 +11,8 @@ import Homepage from "./Homepage";
 import About from "./About";
 import Product from "./Product";
 import Products from "./Products";
-
+import InventorNewProject from "./ProtectedInventor/InventorProject/InventorNewProject";
+import LayoutProject from "./ProtectedInventor/InventorProject/LayoutProject";
 
 export {
     Login,
@@ -26,5 +27,7 @@ export {
     Homepage,
     About,
     Product,
-    Products
+    Products,
+    InventorNewProject,
+    LayoutProject
 }

@@ -1,8 +1,13 @@
 import { styles } from "../../../constant"
 import LoginLeft from "./LoginLeft"
 import LoginRight from "./LoginRight"
+import { useEffect } from "react";
 
 const Login = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     return (
         <div className={`w-full overflow-hidden ${styles.flexCenter}`}>
             <div className={`flex md:flex-row flex-col-reverse`}>

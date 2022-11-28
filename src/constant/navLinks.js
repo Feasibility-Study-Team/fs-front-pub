@@ -4,10 +4,6 @@ const navLinks = [
         title: "Home"
     },
     {
-        path: "/feasibility",
-        title: "Feasibility Test"
-    },
-    {
         path: "/product",
         title: "Product"
     },

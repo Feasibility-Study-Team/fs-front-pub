@@ -6,12 +6,14 @@ const styles = {
 
     editFormContent: "flex flex-row gap-4 items-start",
     editLabel: "w-24",
-    editInput: "h-8 w-96",
+    editInput: "h-8 w-96 px-2",
+    errorInput: "font-normal text-red-500",
 
     gradientbg1: "bg-[#FF3C78] h-[224px] w-[224px] mix-blend-normal opacity-50 blur-2xl rounded-full",
     gradientbg2: "bg-[#315BFF] h-[224px] w-[224px] mix-blend-hard-light opacity-70 blur-2xl rounded-full",
 
     btnStyle1: "w-48 h-12 bg-darkBlue text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
+    btnStyle2: "w-48 h-12 bg-[#02BE83] text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
 
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",

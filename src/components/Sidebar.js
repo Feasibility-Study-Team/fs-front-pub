@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom"
 import { DashboardIcon } from "../assets"
 import { AiFillPieChart } from "react-icons/ai"
-import { MdPersonSearch } from "react-icons/md"
+import { MdPersonSearch, MdModelTraining } from "react-icons/md"
 import { RiUserSettingsFill, RiLogoutBoxRFill } from "react-icons/ri"
-import { FaUsers } from "react-icons/fa"
+import { FaUsers, FaUniversity } from "react-icons/fa"
 
 const Sidebar = () => {
   const dataSidebar = [
@@ -26,6 +26,16 @@ const Sidebar = () => {
       name: "Data Alat",
       icon: <FaUsers />,
       link: "/admin/alat"
+    },
+    {
+      name: "Feasibility Data",
+      icon: <MdModelTraining />,
+      link: "/admin/feasibility"
+    },
+    {
+      name: "institusi Data",
+      icon: <FaUniversity />,
+      link: "/admin/institusi"
     }
   ]
 
@@ -51,7 +61,7 @@ const Sidebar = () => {
                   isActive ? sidebarStyle.activeClassName : sidebarStyle.deactiveClassName
                 }
                 to={item.link}
-                end
+                end={index === 0 ? true : false}
               >
                 {item.icon}
                 {item.name}

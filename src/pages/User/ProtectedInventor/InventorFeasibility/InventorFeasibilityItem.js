@@ -1,4 +1,5 @@
 import React from 'react'
+import { pdfIcon } from '../../../../assets'
 import { colorTest, colorText } from '../../../../constant/formatter'
 
 const InventorFeasibilityItem = () => {
@@ -27,10 +28,11 @@ const InventorFeasibilityItem = () => {
                         </div>
                         <div className="flex flex-col gap-4">
                             <h3 className="font-medium text-xl">Project Report</h3>
-                            <a className="border border-[#11AF22] bg-white w-44 h-52"
+                            <a className="border border-[#11AF22] bg-white w-44 h-52 flex flex-col items-center justify-center gap-2"
                                 href={data.report}
                                 target="blank">
-                                pdf
+                                <img src={pdfIcon} alt="pdf"/>
+                                <p className="font-light text-xs">hepa-filter_report.pdf</p>
                             </a>
                         </div>
                     </div>

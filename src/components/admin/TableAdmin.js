@@ -1,5 +1,6 @@
 import { GrFormNext, GrFormPrevious } from "react-icons/gr"
 import { Link } from "react-router-dom"
+import { profileDefault } from "../../assets"
 
 const TableAdmin = ({ res, title, handleModal }) => {
     return (
@@ -33,7 +34,7 @@ const TableAdmin = ({ res, title, handleModal }) => {
                         {res?.data && res?.data.map((item, index) => (
                             <tr className="bg-white hover:bg-tablehover font-semibold text-admintext border-b border-tablehover" key={index}>
                                 <th scope="row" className="py-4 px-6 flex items-center gap-2 font-semibold">
-                                    <img src={item?.photo} alt="profile" className="w-10 h-10 rounded-full" />
+                                    <img src={item?.photo || profileDefault} alt="profile" className="w-10 h-10 rounded-full" />
                                     {item?.username}
                                 </th>
                                 <td className="py-4 px-6">
@@ -43,7 +44,7 @@ const TableAdmin = ({ res, title, handleModal }) => {
                                     {item?.email}
                                 </td>
                                 <td className="py-4 px-6">
-                                    {item?.id_institusi}
+                                    {item?.institusi?.nama_institusi}
                                 </td>
                                 <td className="py-4 px-6">
                                     {item?.nomor}

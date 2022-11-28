@@ -1,8 +1,12 @@
+import { useEffect } from "react"
 import { airflowImg, hepaImg, lawnmowerImg, scleanerImg } from "../../assets"
 import { DescriptionProduct, HeadProduct, ProductHomepage } from "../../components"
 import { styles } from "../../constant"
 
 const Product = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const response = {
         msg: "sukses",
         alat: {

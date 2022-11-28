@@ -18,11 +18,13 @@ const ToolsHomepage = ({ title, desc, img }) => {
                 <div className={`w-full ${styles.paddingX} ${styles.flexCenter}`}>
                     <div className={`${styles.boxContent} flex lg:flex-row flex-col flex-wrap py-6 relative z-10 gap-16`}>
                         <div className="flex-1">
-                            <img src={img} alt="tools" className="lg:w-[667px] w-full rounded-xl"/>
+                            <img src={img} alt="tools" className="lg:w-[667px] w-full rounded-xl" />
                         </div>
                         <div className="flex-1 flex flex-col gap-8 justify-center">
                             <p className="font-medium text-3xl text-white">{desc}</p>
-                            <Link to="feasibility"><button className={styles.btnStyle1}>Test Now!</button></Link>
+                            <Link to="/login">
+                                <button className={styles.btnStyle1}>Test Now!</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

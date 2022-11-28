@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { navLinks, styles } from "../constant"
-import { FiSearch, FiUser, FiShoppingBag } from "react-icons/fi"
+import { FiUser } from "react-icons/fi"
 
 const useAuth = () => {
     const isExpired = false;
@@ -27,7 +27,7 @@ const Header = () => {
                                     className={({ isActive }) =>
                                         isActive ? "text-[#1C768F]" : "hover:font-bold text-black"
                                     }
-                                    end
+                                    end={index === 0 ? true : false}
                                 >
                                     {item.title}
                                 </NavLink>
@@ -35,13 +35,13 @@ const Header = () => {
                         ))}
                     </ul>
                     <div className="flex gap-12 items-center">
-                        <button>
+                        {/* <button>
                             <FiSearch size={24} />
-                        </button>
+                        </button> */}
                         {isAuth ?
                             <div className="flex gap-12 items-center">
                                 <NavLink
-                                    to="/inventor"
+                                    to="/inventor/profile"
                                     className={({ isActive }) =>
                                         isActive ? "text-[#1C768F]" : "text-black"
                                     }
@@ -51,9 +51,9 @@ const Header = () => {
                                     </button>
                                 </NavLink>
 
-                                <button>
+                                {/* <button>
                                     <FiShoppingBag size={24} />
-                                </button>
+                                </button> */}
                             </div> :
                             <button className="w-24 h-9 bg-darkBlue text-white rounded hover:border-2 hover:border-darkBlue hover:text-darkBlue hover:bg-transparent ease-in-out duration-300">
                                 Login

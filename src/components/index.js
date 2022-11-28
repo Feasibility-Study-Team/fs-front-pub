@@ -3,6 +3,8 @@ import CardAbout from "./about/CardAbout";
 import DedicatedAbout from "./about/DedicatedAbout";
 import HeadAbout from "./about/HeadAbout";
 import OpinionAbout from "./about/OpinionAbout";
+import TableFeasibility from "./admin/TableFeasibility";
+import TableInstitusi from "./admin/TableInstitusi";
 import Footer from "./Footer";
 import HapusModal from "./HapusModal";
 import Header from "./Header";
@@ -17,8 +19,8 @@ import AllProduct from "./product/AllProduct";
 import DescriptionProduct from "./product/DescriptionProduct";
 import HeadProduct from "./product/HeadProduct";
 import Sidebar from "./Sidebar";
-import TableAdmin from "./TableAdmin";
-import TableAlat from "./TableAlat";
+import TableAdmin from "./admin/TableAdmin";
+import TableAlat from "./admin/TableAlat";
 
 export {
     Footer,
@@ -41,5 +43,7 @@ export {
     OpinionAbout,
     HeadProduct,
     DescriptionProduct,
-    AllProduct
+    AllProduct,
+    TableFeasibility,
+    TableInstitusi
 }

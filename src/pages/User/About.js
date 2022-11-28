@@ -1,8 +1,13 @@
+import { useEffect } from "react"
 import { AnalyzeAbout, CardAbout, DedicatedAbout, HeadAbout, OpinionAbout, ToolsHomepage } from "../../components"
 import { styles } from "../../constant"
 import { aboutData } from "../../constant/data"
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="w-full overflow-hidden">
       <div className={`w-full bg-darkBlue ${styles.flexCenter} ${styles.paddingX} sm:py-32 py-8`}>
@@ -26,11 +31,11 @@ const About = () => {
       </div>
 
       <div className={`w-full bg-placeholder relative ${styles.flexCenter}`}>
-        <DedicatedAbout title={aboutData.dedicatedTitle} desc={aboutData.dedicatedDesc} data={aboutData.dedicatedData}/>
+        <DedicatedAbout title={aboutData.dedicatedTitle} desc={aboutData.dedicatedDesc} data={aboutData.dedicatedData} />
       </div>
 
       <div className={`w-full bg-greenuser ${styles.flexCenter} relative`}>
-        <OpinionAbout title={aboutData.opinionTitle} quote={aboutData.opitionQuote} img={aboutData.opinionImg} name={aboutData.opinionName} data={aboutData.opinionData}/>
+        <OpinionAbout title={aboutData.opinionTitle} quote={aboutData.opitionQuote} img={aboutData.opinionImg} name={aboutData.opinionName} data={aboutData.opinionData} />
       </div>
 
       <div className={`w-full bgCardBlue ${styles.paddingY} relative`}>

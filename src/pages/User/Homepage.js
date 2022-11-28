@@ -1,9 +1,13 @@
+import { useEffect } from "react"
 import { airflowImg, economicImg, hepaImg, lawnmowerImg, legalityImg, operationalImg, scheduleImg, scleanerImg, technicalImg } from "../../assets"
 import { HeadHomepage, ParameterHomepage, PartnerHomepage, ProductHomepage, PromotionHomepage, ToolsHomepage } from "../../components"
 import { styles } from "../../constant"
 import { homepageData } from "../../constant/data"
 
 const Homepage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const response = {
         message: "sukses",
         product: [

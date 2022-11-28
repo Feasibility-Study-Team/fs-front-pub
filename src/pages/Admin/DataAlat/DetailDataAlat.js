@@ -20,11 +20,11 @@ const DetailDataAlat = () => {
         </div>
         <div>
           <h3 className={detailStyle.headingText}>Nama Inventor</h3>
-          <p className={detailStyle.descText}>{data?.nama_inventor || "-"}</p>
+          <p className={detailStyle.descText}>{data?.inventor?.nama_lengkap || "-"}</p>
         </div>
         <div>
           <h3 className={detailStyle.headingText}>Instansi</h3>
-          <p className={detailStyle.descText}>{data?.instansi || "-"}</p>
+          <p className={detailStyle.descText}>{data?.inventor?.institusi?.nama_institusi || "-"}</p>
         </div>
         <div>
           <h3 className={detailStyle.headingText}>Deskripsi Alat</h3>

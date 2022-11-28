@@ -1,5 +1,5 @@
 import { Link, Outlet, useParams } from "react-router-dom"
-import { Profile } from "../../../assets"
+import { Profile, profileDefault } from "../../../assets"
 import { HeaderAdmin } from "../../../components"
 import { styles } from "../../../constant"
 import { MdOutlineLogout } from "react-icons/md"
@@ -42,7 +42,7 @@ const DetailAlat = () => {
                 <div className="flex flex-row w-full mt-10 h-full gap-10">
                     <div className="basis-1/3 flex flex-col gap-9">
                         <div className="w-full bg-card rounded-lg p-6 shadow-md flex gap-6">
-                            <img src={data?.gambar_alat} alt="Alat" className="h-24 w-24 rounded-full" />
+                            <img src={data?.gambar_alat || profileDefault} alt="Alat" className="h-24 w-24 rounded-full" />
                             <p className="font-bold text-2xl text-cardtext">{data?.nama_alat}</p>
                         </div>
                         <div className="w-full bg-card rounded-lg p-6 shadow-md flex flex-col items-center">

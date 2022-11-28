@@ -25,6 +25,8 @@ import bookIcon from "./icons/book.png";
 import processImg from "./img/process.jpg";
 import resultImg from "./img/result.png";
 import opinionImg from "./img/opinion.jpg";
+import pdfIcon from "./icons/pdf.png";
+import profileDefault from "./img/profile_default.png";
 
 export{
     Alat1,
@@ -53,5 +55,7 @@ export{
     bookIcon,
     processImg,
     resultImg,
-    opinionImg
+    opinionImg,
+    pdfIcon,
+    profileDefault
 }
