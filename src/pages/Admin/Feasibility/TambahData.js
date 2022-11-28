@@ -54,14 +54,17 @@ const TambahData = () => {
     initialValues: {
       nama_data: '',
       id_parameter: '',
-      id_aspek: ''
+      id_aspek: '',
+      tipe: ''
     },
 
     validationSchema: Yup.object({
       nama_data: Yup.string()
         .required('Nama data harus di isi'),
       id_parameter: Yup.string()
-        .required('Parameter harus di isi')
+        .required('Parameter harus di isi'),
+      tipe: Yup.string()
+        .required('Tipe data harus dipilih')
     }),
 
     onSubmit: doData
@@ -112,6 +115,18 @@ const TambahData = () => {
               />
             </div>
             {formik.touched.nama_data && formik.errors.nama_data && <div className={`${styles.errorInput} mb-[10px]`}>{formik.errors.nama_data}</div>}
+            <div className={`${styles.editFormContent} flex flex-row items-center`}>
+              <div className="w-64"><label>Tipe</label></div>
+              <select
+                type="text"
+                className={`${styles.editInput} bg-placeholder border-2 border-[#252733] rounded-lg`}
+                {...formik.getFieldProps('tipe')}>
+                  <option value="" hidden>Pilih Tipe</option>
+                  <option value="text">Text</option>
+                  <option value="file">File</option>
+                </select>
+            </div>
+            {formik.touched.tipe && formik.errors.tipe && <div className={`${styles.errorInput} mb-[10px]`}>{formik.errors.tipe}</div>}
           </div>
         </div>
         {error && <div className={`${styles.errorInput}`}>{error}</div>}

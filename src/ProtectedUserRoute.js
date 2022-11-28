@@ -1,7 +1,16 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { useJwt } from "react-jwt";
 
 const useAuth = () => {
-    const isExpired = false;
+    const token = localStorage.getItem('token')
+
+    const { isExpired, decodedToken } = useJwt(token);
+    
+    if(decodedToken){
+        if(decodedToken.role !== "Inventor"){
+            return true
+        }
+    }
 
     if (!isExpired) {
         return true;

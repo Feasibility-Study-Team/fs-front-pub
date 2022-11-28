@@ -5,9 +5,26 @@ import { RiUserSettingsFill } from "react-icons/ri"
 import { CgFileDocument } from "react-icons/cg"
 import { FaMoneyBill } from "react-icons/fa"
 import { AiFillPieChart } from "react-icons/ai"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import api from "../../../controller/inventorController"
 
 const Inventor = () => {
+    const [data, setData] = useState(null);
+    const navigate = useNavigate()
+    useEffect(() => {
+        api.getInventorId('00f0a06d-6dd0-4662-aa72-b65dea740578')
+            .then((res) => {
+                console.log(res)
+                setData(res?.data)
+            })
+    }, [])
+
+    const handlerlogout = () => {
+        localStorage.removeItem('token')
+        navigate('/')
+        navigate(0)
+    }
     const profileLinks = [
         {
             icon: <RiUserSettingsFill size={20} />,
@@ -57,16 +74,17 @@ const Inventor = () => {
                                 ))}
 
                             </ul>
-                            <Link to="/admin/alat" className="py-8">
-                                <button className="flex gap-2 text-lg font-medium items-center text-cardtext">
-                                    <MdOutlineLogout size={20} color="#C5221F" />
-                                    Logout
-                                </button>
-                            </Link>
+                            <button
+                                onClick={handlerlogout}
+                                className="flex gap-2 text-lg font-medium items-center text-cardtext"
+                            >
+                                <MdOutlineLogout size={20} color="#C5221F" />
+                                Logout
+                            </button>
                         </div>
                     </div>
                     <div className="flex basis-2/3">
-                        <Outlet />
+                        <Outlet context={data} />
                     </div>
                 </div>
             </div>

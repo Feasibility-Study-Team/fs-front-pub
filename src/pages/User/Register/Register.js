@@ -15,20 +15,18 @@ const Register = () => {
         window.scrollTo(0, 0)
     }, [])
 
-    const [show, setShow] = useState(false)
+    useEffect(() => {
+        api.getInstitusi()
+            .then((res) => {
+                setDataInstitusi(res?.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
 
-    const dataInstitusi = [
-        {
-            id: 1,
-            name: "UPN Veteran Yogyakarta",
-            address: "Babarsari"
-        },
-        {
-            id: 2,
-            name: "UPN Veteran Jakarta",
-            address: "Jakarta"
-        }
-    ]
+    const [show, setShow] = useState(false)
+    const [dataInstitusi, setDataInstitusi] = useState(null)
 
     const registerStyle = {
         inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-full max-h-[38px] focus:outline-none",
@@ -40,10 +38,9 @@ const Register = () => {
 
     const doRegist = (values) => {
         setError(null)
-        formik.setSubmitting(false);
-        formik.resetForm();
+        formik.setSubmitting(false)
         console.log(values);
-        api.createInventor(values)
+        api.registerInventor(values)
             .then((res) => {
                 console.log(res)
                 navigate("/")
@@ -51,6 +48,9 @@ const Register = () => {
             .catch((err) => {
                 console.log(err)
                 setError("Gagal Mendaftar")
+            })
+            .finally(() => {
+                formik.resetForm();
             })
     }
 
@@ -62,6 +62,7 @@ const Register = () => {
             id_institusi: '',
             email: '',
             nomor: '',
+            cpassword: ''
         },
 
         validationSchema: Yup.object({
@@ -79,6 +80,10 @@ const Register = () => {
             nomor: Yup.string()
                 .required('Tidak boleh kosong')
                 .matches(phoneRegExp, 'Nomer HP tidak valid'),
+            cpassword: Yup.string()
+                .oneOf([Yup.ref('password'), null], "Password tidak sama!")
+                .required('Confirm password harus di isi')
+
         }),
 
         onSubmit: doRegist
@@ -115,7 +120,10 @@ const Register = () => {
                             >
                                 <option value="" hidden>institusi</option>
                                 {dataInstitusi && dataInstitusi.map((item, index) => (
-                                    <option key={index} value={item.id}>{item.name}</option>
+                                    <option
+                                        className="h-10"
+                                        key={index}
+                                        value={item.id_institusi}>{item.nama_institusi}</option>
                                 ))}
                             </select>
 
@@ -147,6 +155,15 @@ const Register = () => {
                                 <span className="cursor-pointer opacity-0.5" onClick={() => setShow(!show)}>{show ? <BsEyeSlash /> : <BsEye />}</span>
                             </div>
                             {formik.touched.password && formik.errors.password && <div className={`${registerStyle.errorStyle}`}>{formik.errors.password}</div>}
+                            <div className={`${registerStyle.inputStyle} flex items-center justify-between  ${formik.errors.password && formik.touched.password ? 'mb-[5px]' : 'mb-[20px]'}`}>
+                                <input
+                                    className="outline-none border-none"
+                                    type="password"
+                                    placeholder="confirm password"
+                                    {...formik.getFieldProps('cpassword')}
+                                />
+                            </div>
+                            {formik.touched.cpassword && formik.errors.cpassword && <div className={`${registerStyle.errorStyle}`}>{formik.errors.cpassword}</div>}
                             {error && <div className={`${registerStyle.errorStyle}`}>{error}</div>}
                             <button className={`${styles.btnStyle1} mt-8`} type="submit">Register</button>
                         </form>

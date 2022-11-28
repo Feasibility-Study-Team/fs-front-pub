@@ -17,7 +17,6 @@ function App() {
           <Route path="product/:id" element={<Product />} />
 
           <Route element={<ProtectedUserRoute />}>
-
             <Route path="/inventor/project/:id" element={<LayoutProject title="Project Data" />}>
               <Route index element={<InventorProject />} />
             </Route>

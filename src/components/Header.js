@@ -1,20 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { navLinks, styles } from "../constant"
 import { FiUser } from "react-icons/fi"
 
-const useAuth = () => {
-    const isExpired = false;
-
-    if (!isExpired) {
-        return true;
-    }
-
-    return false;
-}
-
-const Header = () => {
-    const isAuth = useAuth()
-
+const Header = ({isAuth}) => {
     return (
         <nav className={`${styles.paddingX} py-6 ${styles.flexCenter}`}>
             <div className={styles.boxContent}>
@@ -55,9 +43,11 @@ const Header = () => {
                                     <FiShoppingBag size={24} />
                                 </button> */}
                             </div> :
-                            <button className="w-24 h-9 bg-darkBlue text-white rounded hover:border-2 hover:border-darkBlue hover:text-darkBlue hover:bg-transparent ease-in-out duration-300">
-                                Login
-                            </button>}
+                            <Link to="/login">
+                                <button className="w-24 h-9 bg-darkBlue text-white rounded hover:border-2 hover:border-darkBlue hover:text-darkBlue hover:bg-transparent ease-in-out duration-300">
+                                    Login
+                                </button>
+                            </Link>}
                     </div>
                 </div>
             </div>

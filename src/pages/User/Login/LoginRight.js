@@ -3,10 +3,12 @@ import { styles } from "../../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
+import api from "../../../controller/inventorController"
 
 const LoginRight = () => {
+    const navigate = useNavigate()
     const loginStyle = {
         inputStyle: "border border-iris100 rounded-[10px] text-[16px] py-1.5 px-4 w-[250px] max-h-[38px] outline-none",
         stripStyle: "border-solid border border-black w-[125px] h-0",
@@ -17,10 +19,19 @@ const LoginRight = () => {
     const [show, setShow] = useState(false)
 
     const doLogin = (values) => {
-        formik.setSubmitting(false);
+        formik.setSubmitting(false)
+        setError(null)
+        api.loginInventor(values)
+            .then((res)=>{
+                localStorage.setItem('token', res?.data?.token)
+                navigate('/')
+                navigate(0)
+            })
+            .catch((err)=>{
+                console.log(err)
+                setError("username/password salah!")
+            })
         formik.resetForm();
-        console.log(values);
-        setError("username/password salah!")
     }
 
     const formik = useFormik({
