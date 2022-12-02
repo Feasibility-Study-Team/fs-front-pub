@@ -8,17 +8,27 @@ import { AiFillPieChart } from "react-icons/ai"
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import api from "../../../controller/inventorController"
+import { useJwt } from "react-jwt";
 
 const Inventor = () => {
-    const [data, setData] = useState(null);
-    const navigate = useNavigate()
     useEffect(() => {
-        api.getInventorId('00f0a06d-6dd0-4662-aa72-b65dea740578')
-            .then((res) => {
-                console.log(res)
-                setData(res?.data)
-            })
-    }, [])
+        window.scrollTo(0, 0)
+      }, [])
+      
+    const [data, setData] = useState(null)
+    const navigate = useNavigate()
+    const token = localStorage.getItem('token')
+    const { decodedToken } = useJwt(token)
+    useEffect(() => {
+        //setId(decodedToken?.id)
+        if (decodedToken) {
+            api.getInventorId(decodedToken?.id)
+                .then((res) => {
+                    console.log(res)
+                    setData(res?.data)
+                })
+        }
+    }, [decodedToken])
 
     const handlerlogout = () => {
         localStorage.removeItem('token')
@@ -50,13 +60,14 @@ const Inventor = () => {
     return (
         <div className={`${styles.paddingX} py-10 ${styles.flexCenter}`}>
             <div className={styles.boxContent}>
+                {console.log('token', decodedToken)}
                 <div className="w-full flex flex-row gap-10">
                     <div className="flex basis-1/3 flex-col gap-9">
                         <div className="w-full bg-card rounded-lg p-6 flex gap-6 items-center">
                             <img src={DashboardIcon} alt="Alat" className="h-24 w-24 rounded-full" />
                             <div className="flex flex-col gap-1">
-                                <p className="font-bold text-2xl text-cardtext">{"Testing"}</p>
-                                <p className="font-medium text-lg text-cardtext">Inventor</p>
+                                <p className="font-bold text-2xl text-cardtext">{data?.nama_lengkap}</p>
+                                <p className="font-medium text-lg text-cardtext">{data?.role}</p>
                             </div>
 
                         </div>

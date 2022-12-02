@@ -54,3 +54,11 @@ code {
   background: linear-gradient(270deg, rgba(254, 120, 49, 0.7) 0%, rgba(255, 222, 190, 0.7) 100%);
   backdrop-filter: blur(25px);
 }
+
+.texttohtml ul{
+  list-style: disc !important; 
+}
+
+.texttohtml ol{
+  list-style: decimal !important; 
+}

@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { styles } from "../../constant"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Rating from "../Rating";
+//  import Rating from "../Rating";
 import { BsPlusSquareFill } from "react-icons/bs"
 import { rupiahFormatter } from "../../constant/formatter";
 
 import 'swiper/css';
 import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper";
+import { Alat1 } from "../../assets";
 
 const ProductHomepage = ({ title, data }) => {
     const style = {
@@ -32,21 +33,19 @@ const ProductHomepage = ({ title, data }) => {
                         <div>
                             {data.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className={style.card}>
-                                        <img src={item.photo} alt={item.name} className="h-40" />
+                                    <Link to={`/product/${item?.id_alat}`} className={style.card}>
+                                        <img src={item?.photo || Alat1} alt={item?.name} className="h-40 object-cover object-center" />
                                         <div className="w-full">
-                                            <h3 className="h-16 text-lg font-medium">{item.name}</h3>
-                                            <Rating rating={item.rating} />
+                                            <h3 className="h-16 text-lg font-medium">{item?.nama_alat}</h3>
+                                            {/* <Rating rating={item?.rating} /> */}
                                         </div>
                                         <div className="w-full flex flex-row flex-wrap items-center justify-between">
-                                            <p className="font-bold text-2xl">{rupiahFormatter(item.price)}</p>
-                                            <Link to="/product/1">
-                                                <button>
-                                                    <BsPlusSquareFill size={45} />
-                                                </button>
-                                            </Link>
+                                            <p className="font-bold text-2xl">{item?.price ? rupiahFormatter(item?.price) : "Hubungi Marketing"}</p>
+                                            <button>
+                                                <BsPlusSquareFill size={45} />
+                                            </button>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </SwiperSlide>
                             ))}
                         </div>

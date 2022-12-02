@@ -21,6 +21,8 @@ import HeadProduct from "./product/HeadProduct";
 import Sidebar from "./Sidebar";
 import TableAdmin from "./admin/TableAdmin";
 import TableAlat from "./admin/TableAlat";
+import DescriptionDown from "./DescriptionDown";
+import HeadAlat from "./alat/HeadAlat";
 
 export {
     Footer,
@@ -45,5 +47,7 @@ export {
     DescriptionProduct,
     AllProduct,
     TableFeasibility,
-    TableInstitusi
+    TableInstitusi,
+    DescriptionDown,
+    HeadAlat
 }

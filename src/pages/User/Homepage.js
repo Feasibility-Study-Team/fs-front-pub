@@ -1,12 +1,24 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { airflowImg, economicImg, hepaImg, lawnmowerImg, legalityImg, operationalImg, scheduleImg, scleanerImg, technicalImg } from "../../assets"
 import { HeadHomepage, ParameterHomepage, PartnerHomepage, ProductHomepage, PromotionHomepage, ToolsHomepage } from "../../components"
 import { styles } from "../../constant"
 import { homepageData } from "../../constant/data"
+import api from "../../controller/userController"
 
 const Homepage = () => {
+    const [product, setProduct] = useState(null)
     useEffect(() => {
         window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
+        api.getProduct()
+            .then((res) => {         
+                setProduct(res?.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }, [])
     const response = {
         message: "sukses",
@@ -99,7 +111,7 @@ const Homepage = () => {
                 <HeadHomepage title={homepageData.headTitle} desc={homepageData.headDesc} />
             </div>
             <div className={`w-full ${styles.flexCenter} ${styles.paddingX} ${styles.paddingY}`}>
-                <ProductHomepage title={homepageData.productTitle} data={response.product} />
+                <ProductHomepage title={homepageData.productTitle} data={product} />
             </div>
             <div className={`w-full bg-placeholder ${styles.flexCenter} ${styles.paddingX} ${styles.paddingY}`}>
                 <ParameterHomepage title={homepageData.parameterTitle} desc={homepageData.parameterDesc} data={response.parameter} />
@@ -108,10 +120,10 @@ const Homepage = () => {
                 <PromotionHomepage title={homepageData.whyTitle} desc={homepageData.whyDesc} img={homepageData.whyImg} data={homepageData.whyData} />
             </div>
             <div className={`w-full bg-placeholder ${styles.flexCenter}`}>
-                <PartnerHomepage title={homepageData.partnerTitle} data={homepageData.partnerData}/>
+                <PartnerHomepage title={homepageData.partnerTitle} data={homepageData.partnerData} />
             </div>
             <div className={`w-full bgCardBlue ${styles.paddingY} relative`}>
-                <ToolsHomepage title={homepageData.toolsTitle} desc={homepageData.toolsDesc} img={homepageData.toolsImg}/>
+                <ToolsHomepage title={homepageData.toolsTitle} desc={homepageData.toolsDesc} img={homepageData.toolsImg} />
             </div>
         </div>
 

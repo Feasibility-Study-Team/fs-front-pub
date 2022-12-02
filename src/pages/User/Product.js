@@ -26,39 +26,9 @@ const Product = () => {
                     img: lawnmowerImg
                 }
             ],
-            feasibilitydesc: [
-                {
-                    desc: "Easy to handle areas such as potholes, undulating terrain, lawn edges, flower beds, and under flower stands."
-                },
-                {
-                    desc: "Mowing the grass on the flat ground, quickly trim the grass on the lawn, the angle is flexible, and the slope haystacks are quickly trimmed."
-                },
-                {
-                    desc: "Had special plant protection fence effectively prevents damage to the flowerbed, and the special baffle effectively prevents the grass from splashing."
-                }
-            ],
-            spec: [
-                {
-                    desc: "Material: Stainless steel"
-                },
-                {
-                    desc: "Battery: 12V/24V/36V/48V lithium battery"
-                },
-                {
-                    desc: "Power: 450W~600W"
-                },
-                {
-                    desc: "Speed: 0-22000RPM"
-                },
-                {
-                    desc: "Telescopic size: 95-120cm adjustable"
-                }
-            ],
-            review: [
-                {
-                    desc: "Good"
-                }
-            ],
+            feasibilitydesc: "<ol> <li>Easy to bandle areas such as potholes</li> <li>Mowing the grass flower</li> <li>Hand special plany protection fence</li> </ol>",
+            spec: "<ol><li>Material: Stainless steel</li><li>Battery: 12V/24V/36V/48V lithium battery</li><li>Power: 450W~600W</li><li>Speed: 0-22000RPM</li><li>Telescopic size: 95-120cm adjustable</li></ol>",
+            review: "<ol><li>Good</li></ol>",
         },
         product: [
             {

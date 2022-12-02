@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { About, Homepage, Inventor, InventorFeasibilityItem, InventorFeasibilityStatus, InventorNewProject, InventorProfile, InventorProject, InventorProjectData, LayoutProject, LayoutUser, Login, Product, Products, Register } from "./pages/User";
+import { About, Homepage, Inventor, InventorAspek, InventorFeasibilityItem, InventorFeasibilityStatus, InventorNewProject, InventorProfile, InventorProject, InventorProjectData, LayoutProject, LayoutUser, Login, Product, Products, Register } from "./pages/User";
 import { DataPenguji, LayoutAdmin, AdminLogin, DataInventor, DataAlat, EditInventor, EditPenguji, DetailAlat, DetailDataAlat, FeasibilityAlat, OverviewAdmin, MenuFeasibility, TambahAspek, TambahParameter, TambahData, TambahLayout, TambahInstitusi, DataInstitusi } from "./pages/Admin";
 import ProtectedAdminRoute from "./ProtectedAdminRoute";
 import ProtectedUserRoute from "./ProtectedUserRoute";
@@ -17,10 +17,11 @@ function App() {
           <Route path="product/:id" element={<Product />} />
 
           <Route element={<ProtectedUserRoute />}>
-            <Route path="/inventor/project/:id" element={<LayoutProject title="Project Data" />}>
+            <Route path="/inventor/project/:alat" element={<LayoutProject title="Project Data" />}>
               <Route index element={<InventorProject />} />
+              <Route path=":aspek" element={<InventorAspek />}/>
             </Route>
-            <Route path="/inventor/new-project" element={<LayoutProject title="New Project" />}>
+            <Route path="/inventor/project/new-project" element={<LayoutProject title="New Project" />}>
               <Route index element={<InventorNewProject />} />
             </Route>
             <Route path="inventor" element={<Inventor />}>

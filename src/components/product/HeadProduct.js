@@ -8,7 +8,7 @@ const HeadProduct = ({ category, name, price, desc, rating, img }) => {
             <div className="flex flex-col basis-1/2">
                 <h1 className="font-medium text-xl text-greyuser mb-2">{category}</h1>
                 <h2 className="font-bold text-cardtext text-7xl mb-5">{name}</h2>
-                <p className="font-semibold text-3xl text-cardtext mb-8">{rupiahFormatter(price)}</p>
+                <p className="font-semibold text-3xl text-cardtext mb-8">{price ? rupiahFormatter(price) : ""}</p>
                 <p className="font-medium text-lg text-greyuser">{desc}</p>
                 <div className="my-6"><Rating rating={rating} /></div>
                 <div>

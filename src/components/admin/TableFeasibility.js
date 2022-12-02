@@ -30,7 +30,7 @@ const TableFeasibility = ({ res, title }) => {
                                         </div>
                                     </div>
                                     <div>
-                                        {showParam === index && parameter.data_aspek && parameter.data_aspek.map((data, index) => (
+                                        {showParam === index && parameter.data && parameter.data.map((data, index) => (
                                             <div
                                                 key={index}
                                                 className="pl-4"

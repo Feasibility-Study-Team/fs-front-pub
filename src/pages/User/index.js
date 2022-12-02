@@ -13,6 +13,7 @@ import Product from "./Product";
 import Products from "./Products";
 import InventorNewProject from "./ProtectedInventor/InventorProject/InventorNewProject";
 import LayoutProject from "./ProtectedInventor/InventorProject/LayoutProject";
+import InventorAspek from "./ProtectedInventor/InventorProject/InventorAspek";
 
 export {
     Login,
@@ -29,5 +30,6 @@ export {
     Product,
     Products,
     InventorNewProject,
-    LayoutProject
+    LayoutProject,
+    InventorAspek
 }

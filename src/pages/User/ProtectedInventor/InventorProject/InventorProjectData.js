@@ -23,11 +23,12 @@ const InventorProjectData = () => {
             <h1 className="font-semibold text-4xl text-cardtext">Project Data</h1>
             <div className="w-full flex flex-col gap-6">
                 {data?.alat && data?.alat.map((item, index) => (
-                    <Link to={item.id}>
-                        <div key={index} className="bg-card rounded-lg w-full flex flex-col px-10 py-5">
+                    <Link to={item.id_alat} key={index} >
+                        <div className="bg-card rounded-lg w-full flex flex-col px-10 py-5">
                             <div className="w-full flex justify-between items-center">
                                 <h2 className="font-semibold text-cardtext text-xl">
-                                    {item.title}
+                                    {console.log('alat', data)}
+                                    {item.nama_alat}
                                 </h2>
                                 <GrFormNext size={20} />
                             </div>

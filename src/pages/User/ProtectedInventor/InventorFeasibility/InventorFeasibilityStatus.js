@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom"
+import { Alat1 } from "../../../../assets"
 // import { StatusImg } from "../../../../assets"
 import { colorText } from "../../../../constant/formatter"
 
@@ -32,15 +33,15 @@ const InventorFeasibilityStatus = () => {
             <h1 className="font-semibold text-4xl text-cardtext">Feasibility Test Status</h1>
             <div className="flex flex-row flex-wrap gap-20">
                 {data?.alat && data?.alat.map((item, index) => (
-                    <Link to={item.id} key={index}>
+                    <Link to={item.id_alat} key={index}>
                         <div className="bg-card rounded-lg w-[350px] h-[250px] flex flex-col">
-                            <img src={item?.img} alt="alat" className="w-full h-28 object-cover object-center rounded-lg" />
+                            <img src={item?.img || Alat1} alt="alat" className="w-full h-28 object-cover object-center rounded-lg" />
                             <div className="flex flex-col gap-2 p-5">
                                 <h2 className="font-bold text-cardtext text-2xl">
-                                    {item.title}
+                                    {item.nama_alat}
                                 </h2>
-                                <p className={`${colorText(item.status)} font-medium text-base`}>
-                                    {item.status}
+                                <p className={`${colorText(item.status || "Pending")} font-medium text-base`}>
+                                    {item.status || "Dokumen belum ada"}
                                 </p>
                             </div>
                         </div>
