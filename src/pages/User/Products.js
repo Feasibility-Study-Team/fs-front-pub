@@ -1,69 +1,27 @@
-import { useEffect } from "react"
-import { airflowImg, hepaImg, lawnmowerImg, scleanerImg } from "../../assets"
+import { useEffect, useState } from "react"
 import { AllProduct } from "../../components"
 import { styles } from "../../constant"
-
+import api from "../../controller/userController"
 const Products = () => {
+    const [product, setProduct] = useState(null)
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    const response = {
-        msg: "sukses",
-        data: [
-            {
-                photo: airflowImg,
-                name: "Portable Laminar Air Flow",
-                rating: 4,
-                price: 5000000
-            },
-            {
-                photo: lawnmowerImg,
-                name: "Lawn Mower",
-                rating: 5,
-                price: 1500000
-            },
-            {
-                photo: scleanerImg,
-                name: "Secondary Cleaner Belt Cleaner",
-                rating: 4,
-                price: 200000
-            },
-            {
-                photo: hepaImg,
-                name: "Hepa filter Effisiensi 99,99%",
-                rating: 3,
-                price: 50000
-            },
-            {
-                photo: airflowImg,
-                name: "Portable Laminar Air Flow",
-                rating: 4,
-                price: 5000000
-            },
-            {
-                photo: lawnmowerImg,
-                name: "Lawn Mower",
-                rating: 5,
-                price: 1500000
-            },
-            {
-                photo: scleanerImg,
-                name: "Secondary Cleaner Belt Cleaner",
-                rating: 4,
-                price: 200000
-            },
-            {
-                photo: hepaImg,
-                name: "Hepa filter Effisiensi 99,99%",
-                rating: 3,
-                price: 50000
-            }
-        ]
-    }
+
+    useEffect(() => {
+        api.getProduct()
+            .then((res) => {
+                setProduct(res?.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
+   
     return (
         <div className="w-full overflow-hidden">
             <div className={`w-full bg-white ${styles.flexCenter} ${styles.paddingX} ${styles.paddingY}`}>
-                <AllProduct data={response.data}/>
+                <AllProduct data={product} />
             </div>
         </div>
     )

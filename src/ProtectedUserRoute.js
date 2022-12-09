@@ -1,26 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useJwt } from "react-jwt";
+import { useContext } from "react";
+import { UserContext} from "./context/User";
 
-const useAuth = () => {
-    const token = localStorage.getItem('token')
-
-    const { isExpired, decodedToken } = useJwt(token);
-    
-    if(decodedToken){
-        if(decodedToken.role !== "Inventor"){
-            return true
-        }
-    }
-
-    if (!isExpired) {
-        return true;
-    }
-
-    return false;
-}
 
 const ProtectedUserRoute = () => {
-    const isAuth = useAuth();
+    const { isAuth } = useContext(UserContext)
     return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
 }
 

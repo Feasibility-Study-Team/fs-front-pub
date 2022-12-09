@@ -1,8 +1,9 @@
-import { Link, useOutletContext } from "react-router-dom"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { UserContext } from "../../../context/User"
 
 const InventorProfile = () => {
-  const data = useOutletContext()
-
+  const {user} = useContext(UserContext)
     const inventorStyle = {
         headingText: "font-medium text-xl text-cardtext",
         descText: "font-medium text-2xl text-detailtext"
@@ -11,32 +12,31 @@ const InventorProfile = () => {
     <div className="w-full bg-card rounded-lg py-6 px-10 flex flex-col gap-6">
       <div className="w-full border-b-2 pb-6 font-semibold text-cardtext text-2xl">
         <h1>Profile</h1>
-        {console.log(data)}
       </div>
       <div className="flex flex-col gap-5">
         <div>
           <h2 className={inventorStyle.headingText}>Full Name</h2>
-          <p className={inventorStyle.descText}>{data?.nama_lengkap || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.nama_lengkap || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>Username</h2>
-          <p className={inventorStyle.descText}>{data?.username || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.username || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>Company</h2>
-          <p className={inventorStyle.descText}>{data?.institusi?.nama_institusi || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.institusi?.nama_institusi || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>NIK</h2>
-          <p className={inventorStyle.descText}>{data?.deskripsi_alat || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.deskripsi_alat || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>Email</h2>
-          <p className={inventorStyle.descText}>{data?.email || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.email || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>Phone Number</h2>
-          <p className={inventorStyle.descText}>{data?.nomor || "-"}</p>
+          <p className={inventorStyle.descText}>{user?.nomor || "-"}</p>
         </div>
         <div>
           <h2 className={inventorStyle.headingText}>Password</h2>

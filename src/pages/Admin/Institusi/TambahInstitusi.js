@@ -1,31 +1,22 @@
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import { Profile } from "../../../assets"
 import { HeaderAdmin } from "../../../components"
 import { styles } from "../../../constant"
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { phoneRegExp } from "../../../constant/variable"
-import api from "../../../controller/adminController"
+import { AdminContext } from "../../../context/Admin"
 
 const TambahInstitusi = () => {
+    const {addInstitusi} = useContext(AdminContext)
     const [error, setError] = useState(null)
-    const navigate = useNavigate()
 
     const doAdd = (values) => {
         setError(null)
         formik.setSubmitting(false)
         formik.resetForm()
-        console.log(values)
-        api.addInstitusi(values)
-            .then((res) => {
-                console.log(res)
-                navigate("/admin/institusi")
-            })
-            .catch((err) => {
-                console.log(err)
-                setError("Gagal menambahkan")
-            })
+        addInstitusi(values, setError)
     }
 
     const formik = useFormik({

@@ -2,6 +2,8 @@ import api from "../constant/api";
 
 // eslint-disable-next-line
 export default {
+    updateToPenguji: (id) => api.put(`/admin/role/penguji/${id}`),
+    updateToInventor: (id) => api.put(`/admin/role/inventor/${id}`), 
     
     getPenguji: () => api.get('/admin/penguji'),
     deletePenguji: (id) => api.delete(`/admin/penguji/${id}`),
@@ -34,4 +36,11 @@ export default {
     getDataId: (id) => api.get(`/admin/data-aspek/${id}`),
     updateData: (id, value) => api.put(`/admin/data-aspek/${id}`, value),
     deleteData: (id) => api.delete(`/admin/data-aspek/${id}`),
+
+    getUji: () => api.get('/admin/uji'),
+    createUji: (value) => api.post('/admin/uji', value),
+
+    countInventor: ()=> api.get('/overview/inventor'),
+    countPenguji: ()=> api.get('/overview/penguji'),
+    countAlat: ()=> api.get('/overview/alat')
 }

@@ -23,6 +23,12 @@ import TableAdmin from "./admin/TableAdmin";
 import TableAlat from "./admin/TableAlat";
 import DescriptionDown from "./DescriptionDown";
 import HeadAlat from "./alat/HeadAlat";
+import DataParameter from "./inventor/DataParameter";
+import TableUji from "./admin/TableUji";
+import LayoutPenguji from "./penguji/LayoutPenguji";
+import DataPenguji from "./penguji/DataPenguji";
+import PreviewImage from "./inventor/PreviewImage";
+import Loading from "./Loading";
 
 export {
     Footer,
@@ -49,5 +55,11 @@ export {
     TableFeasibility,
     TableInstitusi,
     DescriptionDown,
-    HeadAlat
+    HeadAlat,
+    DataParameter,
+    TableUji,
+    LayoutPenguji,
+    DataPenguji,
+    PreviewImage,
+    Loading
 }

@@ -22,7 +22,7 @@ const ToolsHomepage = ({ title, desc, img }) => {
                         </div>
                         <div className="flex-1 flex flex-col gap-8 justify-center">
                             <p className="font-medium text-3xl text-white">{desc}</p>
-                            <Link to="/login">
+                            <Link to="/inventor/project/">
                                 <button className={styles.btnStyle1}>Test Now!</button>
                             </Link>
                         </div>

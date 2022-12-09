@@ -3,6 +3,8 @@ import { styles } from "../../../constant"
 import HeaderAdmin from "../../../components/HeaderAdmin"
 import { CategoryScale, Chart as CharJS, Legend, LinearScale, LineElement, PointElement, Tooltip } from "chart.js"
 import { Line } from "react-chartjs-2"
+import { useContext } from "react"
+import { AdminContext } from "../../../context/Admin"
 
 CharJS.register(
   LineElement,
@@ -14,17 +16,13 @@ CharJS.register(
 )
 
 const OverviewAdmin = () => {
+  const {cinventor, cpenguji, calat} = useContext(AdminContext)
+
   const style = {
     cardHead: "flex-1 flex flex-col items-center gap-2 p-6 border-2 hover:shadow-sm border-[#DFE0EB] hover:border-[#3751FF] rounded-lg bg-white",
     cardHeadTitle: "font-bold text-lg text-[#9FA2B4]",
     cardHeadNumber: "font-bold text-4xl text-black",
     cardDetail: "flex-1 flex flex-col py-6 gap-2 items-left border-2 border-[#DFE0EB] rounded-lg bg-white"
-  }
-
-  const response = {
-    jumlah_inventor: 150,
-    jumlah_penguji: 30,
-    jumlah_alat: 300
   }
 
   const data = {
@@ -70,15 +68,15 @@ const OverviewAdmin = () => {
         <div className="flex flex-row gap-8">
           <div className={style.cardHead}>
             <h2 className={style.cardHeadTitle}>Jumlah Inventor</h2>
-            <p className={style.cardHeadNumber}>{response.jumlah_inventor || 0}</p>
+            <p className={style.cardHeadNumber}>{cinventor?.data || 0}</p>
           </div>
           <div className={style.cardHead}>
             <h2 className={style.cardHeadTitle}>Jumlah Penguji</h2>
-            <p className={style.cardHeadNumber}>{response.jumlah_penguji || 0}</p>
+            <p className={style.cardHeadNumber}>{cpenguji?.data || 0}</p>
           </div>
           <div className={style.cardHead}>
             <h2 className={style.cardHeadTitle}>Jumlah Alat</h2>
-            <p className={style.cardHeadNumber}>{response.jumlah_alat || 0}</p>
+            <p className={style.cardHeadNumber}>{calat?.data || 0}</p>
           </div>
         </div>
         <div className="flex flex-col gap-10  p-6 border-2 rounded-lg bg-white">

@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom"
 import { navLinks, styles } from "../constant"
 import { FiUser } from "react-icons/fi"
+import { useContext } from "react"
+import { UserContext } from "../context/User"
 
-const Header = ({isAuth}) => {
+const Header = () => {
+    const { isAuth } = useContext(UserContext)
     return (
         <nav className={`${styles.paddingX} py-6 ${styles.flexCenter}`}>
             <div className={styles.boxContent}>
@@ -23,31 +26,26 @@ const Header = ({isAuth}) => {
                         ))}
                     </ul>
                     <div className="flex gap-12 items-center">
-                        {/* <button>
-                            <FiSearch size={24} />
-                        </button> */}
-                        {isAuth ?
-                            <div className="flex gap-12 items-center">
-                                <NavLink
-                                    to="/inventor/profile"
-                                    className={({ isActive }) =>
-                                        isActive ? "text-[#1C768F]" : "text-black"
-                                    }
-                                >
-                                    <button>
-                                        <FiUser size={24} />
-                                    </button>
-                                </NavLink>
+                            {isAuth ?
+                                <div className="flex gap-12 items-center">
+                                    <NavLink
+                                        to="/inventor/profile"
+                                        className={({ isActive }) =>
+                                            isActive ? "text-[#1C768F]" : "text-black"
+                                        }
+                                    >
+                                        <button>
+                                            <FiUser size={24} />
+                                        </button>
+                                    </NavLink>
 
-                                {/* <button>
-                                    <FiShoppingBag size={24} />
-                                </button> */}
-                            </div> :
-                            <Link to="/login">
-                                <button className="w-24 h-9 bg-darkBlue text-white rounded hover:border-2 hover:border-darkBlue hover:text-darkBlue hover:bg-transparent ease-in-out duration-300">
-                                    Login
-                                </button>
-                            </Link>}
+                                </div> :
+                                <Link to="/login">
+                                    <button className="w-24 h-9 bg-darkBlue text-white rounded hover:border-2 hover:border-darkBlue hover:text-darkBlue hover:bg-transparent ease-in-out duration-300">
+                                        Login
+                                    </button>
+                                </Link>
+                            }
                     </div>
                 </div>
             </div>

@@ -26,12 +26,12 @@ const InventorProject = () => {
           desc={""}
           category="Teknologi Tepat Guna"
           name={data?.nama_alat}
-          img={data?.photo_alat[0] || lawnmowerImg}
+          img={data?.photo_alat[0]?.photo || lawnmowerImg}
         />
       </div>
       <div>
         <DescriptionDown desc={data?.deskripsi_alat} title="Description" border="border-t-2" />
-        <DescriptionDown desc={data?.deskripsi_alat} title="Specification" />
+        <DescriptionDown desc={data?.spesifikasi_alat} title="Specification" />
       </div>
       {console.log('alat', alat)}
 

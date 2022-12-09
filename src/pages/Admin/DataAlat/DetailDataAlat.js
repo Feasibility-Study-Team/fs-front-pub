@@ -1,5 +1,13 @@
 import { useOutletContext } from "react-router-dom"
 
+function Text({ content }) {
+  return (
+      <span dangerouslySetInnerHTML={{
+          __html: content
+      }} />
+  )
+}
+
 const DetailDataAlat = () => {
   const data = useOutletContext()
 
@@ -13,7 +21,7 @@ const DetailDataAlat = () => {
       <div className="w-full border-b-2 pb-6 font-semibold text-cardtext text-2xl">
         <h2>Data Alat</h2>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 texttohtml">
         <div>
           <h3 className={detailStyle.headingText}>Nama Alat</h3>
           <p className={detailStyle.descText}>{data?.nama_alat}</p>
@@ -28,11 +36,11 @@ const DetailDataAlat = () => {
         </div>
         <div>
           <h3 className={detailStyle.headingText}>Deskripsi Alat</h3>
-          <p className={detailStyle.descText}>{data?.deskripsi_alat}</p>
+          <p className={`${detailStyle.descText} pl-8`}><Text content={data?.deskripsi_alat || "-"}/></p>
         </div>
         <div>
           <h3 className={detailStyle.headingText}>Spesifikasi Alat</h3>
-          <p className={detailStyle.descText}>{data?.spesifikasi || "-"}</p>
+          <p className={`${detailStyle.descText} pl-8`}><Text content={data?.spesifikasi_alat || "-"}/></p>
         </div>
       </div>
     </div>

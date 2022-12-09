@@ -2,7 +2,7 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr"
 import { Link } from "react-router-dom"
 import { profileDefault } from "../../assets"
 
-const TableAdmin = ({ res, title, handleModal }) => {
+const TableAdmin = ({ res, title, handleModal, handleUpdate, titleUpdate }) => {
     return (
         <>
             <div className="mt-10 shadow-md overflow-x-auto rounded-lg">
@@ -33,9 +33,11 @@ const TableAdmin = ({ res, title, handleModal }) => {
                     <tbody>
                         {res?.data && res?.data.map((item, index) => (
                             <tr className="bg-white hover:bg-tablehover font-semibold text-admintext border-b border-tablehover" key={index}>
-                                <th scope="row" className="py-4 px-6 flex items-center gap-2 font-semibold">
-                                    <img src={item?.photo || profileDefault} alt="profile" className="w-10 h-10 rounded-full" />
-                                    {item?.username}
+                                <th scope="row" className="py-4 px-6">
+                                    <div className="flex items-center gap-2 font-semibold">
+                                        <img src={item?.photo || profileDefault} alt="profile" className="w-10 h-10 rounded-full" />
+                                        {item?.username}
+                                    </div>
                                 </th>
                                 <td className="py-4 px-6">
                                     {item?.nama_lengkap}
@@ -50,9 +52,13 @@ const TableAdmin = ({ res, title, handleModal }) => {
                                     {item?.nomor}
                                 </td>
                                 <td className="py-4 px-6">
-                                    <div className="flex gap-1">
-                                        <Link to={`${item?.id_penguji || item?.id_inventor}`}><button className="h-8 w-16 rounded-full bg-[#3751FF] hover:bg-tablehover hover:border-[#3751FF] hover:border-2 hover:text-[#3751FF] text-white uppercase">Edit</button></Link>
-                                        <button onClick={() => handleModal(item?.id_penguji || item?.id_inventor)} className="h-8 w-16 rounded-full bg-[#F12B2C] hover:bg-tablehover hover:border-[#F12B2C] hover:border-2 hover:text-[#F12B2C] text-white uppercase">Hapus</button>
+                                    <div className="flex flex-col gap-1 item">
+                                        <div className="flex gap-1">
+                                            <Link to={`${item?.id_penguji || item?.id_inventor}`}><button className="h-8 w-16 rounded-full bg-[#3751FF] hover:bg-tablehover hover:border-[#3751FF] hover:border-2 hover:text-[#3751FF] text-white uppercase">Edit</button></Link>
+                                            <button onClick={() => handleModal(item?.id_penguji || item?.id_inventor)} className="h-8 w-16 rounded-full bg-[#F12B2C] hover:bg-tablehover hover:border-[#F12B2C] hover:border-2 hover:text-[#F12B2C] text-white uppercase">Hapus</button>
+                                        </div>
+
+                                        <button onClick={() => handleUpdate(item?.id_penguji || item?.id_inventor)} className="h-8 w-32 rounded-full bg-green-700 hover:bg-tablehover hover:border-green-700 hover:border-2 hover:text-green-700 text-white uppercase">{titleUpdate}</button>
                                     </div>
                                 </td>
                             </tr>

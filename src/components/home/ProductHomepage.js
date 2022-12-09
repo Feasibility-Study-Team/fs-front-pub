@@ -34,7 +34,7 @@ const ProductHomepage = ({ title, data }) => {
                             {data.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <Link to={`/product/${item?.id_alat}`} className={style.card}>
-                                        <img src={item?.photo || Alat1} alt={item?.name} className="h-40 object-cover object-center" />
+                                        <img src={item?.photo_alat[0]?.photo || Alat1} alt={item?.name} className="h-40 w-full object-cover object-center rounded-lg" />
                                         <div className="w-full">
                                             <h3 className="h-16 text-lg font-medium">{item?.nama_alat}</h3>
                                             {/* <Rating rating={item?.rating} /> */}

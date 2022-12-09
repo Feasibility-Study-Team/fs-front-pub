@@ -27,6 +27,7 @@ import resultImg from "./img/result.png";
 import opinionImg from "./img/opinion.jpg";
 import pdfIcon from "./icons/pdf.png";
 import profileDefault from "./img/profile_default.png";
+import LogoRound from "./img/logo_round.png";
 
 export{
     Alat1,
@@ -57,5 +58,6 @@ export{
     resultImg,
     opinionImg,
     pdfIcon,
-    profileDefault
+    profileDefault,
+    LogoRound
 }

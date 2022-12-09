@@ -16,6 +16,7 @@ import TambahParameter from "./Feasibility/TambahParameter";
 import TambahLayout from "./Feasibility/TambahLayout";
 import DataInstitusi from "./Institusi/DataInstitusi";
 import TambahInstitusi from "./Institusi/TambahInstitusi";
+import Pengujian from "./Pengujian/Pengujian";
 
 export{
     LayoutAdmin,
@@ -35,5 +36,6 @@ export{
     TambahParameter,
     TambahLayout,
     DataInstitusi,
-    TambahInstitusi
+    TambahInstitusi,
+    Pengujian
 }

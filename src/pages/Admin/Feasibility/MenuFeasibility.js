@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { BsPlus } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import { Profile } from "../../../assets"
 import { HeaderAdmin, TableFeasibility } from "../../../components"
 import { styles } from "../../../constant"
-import api from "../../../controller/adminController"
+import { AdminContext } from "../../../context/Admin"
 
 const MenuFeasibility = () => {
-    const [feasibility, setFeasibility] = useState(null)
-    useEffect(() => {
-        api.getAspek()
-            .then((res) => {
-                console.log(res)
-                setFeasibility(res?.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])
+    const {aspek} = useContext(AdminContext)
     return (
         <>
             <div className={styles.adminStyle}>
@@ -47,7 +37,7 @@ const MenuFeasibility = () => {
                         <p>Tambah Aspek</p>
                     </Link>
                 </div>
-                <TableFeasibility res={feasibility} title="Feasibility Aspek"/>
+                <TableFeasibility res={aspek} title="Feasibility Aspek"/>
             </div>
         </>
     )

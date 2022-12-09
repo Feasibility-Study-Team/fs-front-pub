@@ -1,33 +1,21 @@
-import { Link, useOutletContext } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { GrFormNext } from "react-icons/gr"
 import { AiFillPlusCircle } from "react-icons/ai"
+import { useContext } from "react"
+import { UserContext } from "../../../../context/User"
 
 const InventorProjectData = () => {
-    const data = useOutletContext()
-    // const dataAlat = [
-    //     {
-    //         id: "aasdsd-1",
-    //         title: "Lawn Mower",
-    //     },
-    //     {
-    //         id: "aasdsd-2",
-    //         title: "Portable Laminar Air Flow",
-    //     },
-    //     {
-    //         id: "aasdsd-3",
-    //         title: "Hepa Filter",
-    //     }
-    // ]
+    const {user} = useContext(UserContext)
     return (
         <div className="w-full py-6 px-10 flex flex-col gap-14">
             <h1 className="font-semibold text-4xl text-cardtext">Project Data</h1>
             <div className="w-full flex flex-col gap-6">
-                {data?.alat && data?.alat.map((item, index) => (
+                {user?.alat && user?.alat.map((item, index) => (
                     <Link to={item.id_alat} key={index} >
                         <div className="bg-card rounded-lg w-full flex flex-col px-10 py-5">
                             <div className="w-full flex justify-between items-center">
                                 <h2 className="font-semibold text-cardtext text-xl">
-                                    {console.log('alat', data)}
+                                    {console.log('alat', user)}
                                     {item.nama_alat}
                                 </h2>
                                 <GrFormNext size={20} />
@@ -35,7 +23,7 @@ const InventorProjectData = () => {
                         </div>
                     </Link>
                 ))}
-                {data?.alat.length < 1 && <div><p>Belum ada alat</p></div>}
+                {user?.alat?.length < 1 && <div><p>Belum ada alat</p></div>}
             </div>
             <h2 className="font-semibold text-4xl text-cardtext mt-5">New Project</h2>
             <Link to="new-project" className="w-full rounded-lg border-2 border-dashed border-cardtext p-5 flex justify-center">

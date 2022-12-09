@@ -25,7 +25,7 @@ const DescriptionProduct = ({ imgs, desc, spec, review }) => {
                     {imgs && imgs.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className="w-full h-full bg-placeholder p-5">
-                                <img src={item.img} alt="img" className="w-full h-full object-contain object-center" />
+                                <img src={item?.photo} alt="img" className="w-full h-full object-cover object-center" />
                             </div></SwiperSlide>
                     ))}
                 </Swiper>
@@ -39,7 +39,7 @@ const DescriptionProduct = ({ imgs, desc, spec, review }) => {
                     {imgs && imgs.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className="bg-placeholder h-40 cursor-pointer">
-                                <img src={item.img} alt="img" className="w-full h-full object-cover object-center" />
+                                <img src={item?.photo} alt="img" className="w-full h-full object-cover object-center" />
                             </div>
                         </SwiperSlide>
                     ))}

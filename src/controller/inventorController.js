@@ -12,8 +12,13 @@ export default {
 
     createAlat: (value) => api.post(`/admin/alat`, value),
     getAlatId: (id) => api.get(`/admin/alat/${id}`),
+    updateAlat: (id, value) => api.put(`/admin/alat/${id}`, value),
 
     loginInventor: (value) => api.post('/login', value),
 
-    createTemp: (value) => api.post('temp/create', value)
+    createTemp: (value) => api.post('/temp/create', value),
+    getTempUser: (alat, data) => api.get(`/temp/${alat}/${data}`),
+
+    getPengujiId: (id) => api.get(`/admin/penguji/${id}`),
+    getUjiId: (id) => api.get(`/admin/uji/${id}`)
 }

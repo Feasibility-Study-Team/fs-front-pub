@@ -1,29 +1,19 @@
 
 import { useFormik } from "formik"
 import * as Yup from 'yup'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { styles } from "../../../constant"
-import { useState } from "react"
-import api from "../../../controller/adminController"
+import { useContext, useState } from "react"
+import { AdminContext } from "../../../context/Admin"
 
 const TambahAspek = () => {
-    const navigate = useNavigate()
+    const {addAspek} = useContext(AdminContext)
     const [error, setError] = useState(null)
 
     const doAspek = (values) => {
-        formik.setSubmitting(false);
-        api.addAspek(values)
-            .then((res) => {
-                console.log(res)
-                navigate("/admin/feasibility")
-            })
-            .catch((err) => {
-                console.log(err)
-                setError("error")
-            })
-            .finally(() => {
-                formik.resetForm();
-            })
+        formik.setSubmitting(false)
+        addAspek(values, setError)
+        formik.resetForm()
     }
 
     const formik = useFormik({

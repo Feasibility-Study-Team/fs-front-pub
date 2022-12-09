@@ -8,7 +8,7 @@ const HeadHomepage = ({ title, desc }) => {
             <div className="flex flex-col gap-12 basis-1/2 py-20">
                 <h1 className="font-bold text-7xl text-cardtext">{title}</h1>
                 <p className="text-greyuser text-lg">{desc}</p>
-                <Link to="/login">
+                <Link to="/inventor/project/">
                     <button className={styles.btnStyle1}>Test Now!</button>
                 </Link>
             </div>

@@ -1,53 +1,18 @@
 import { useFormik } from "formik"
 import * as Yup from 'yup'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { styles } from "../../../constant"
-import { useEffect, useState } from "react"
-import api from "../../../controller/adminController"
+import { useContext, useState } from "react"
+import { AdminContext } from "../../../context/Admin"
 
 const TambahData = () => {
-  const navigate = useNavigate()
+  const {aspek, parameter, handlerParameter, addData} = useContext(AdminContext)
   const [error, setError] = useState(null)
-  const [aspek, setAspek] = useState(null)
-  const [parameter, setParameter] = useState(null)
-
-  useEffect(() => {
-    api.getAspek()
-      .then((res) => {
-        setAspek(res?.data)
-      })
-      .catch((err) => {
-        console.log(err)
-        setError("Error get aspek")
-      })
-  }, [])
-
-  const handlerParameter = (id) => {
-    console.log(id)
-    api.getAspekId(id)
-      .then((res) => {
-        setParameter(res?.data?.parameter)
-      })
-      .catch((err) => {
-        console.log(err)
-        setError("Parameter error")
-      })
-  }
 
   const doData = (values) => {
     formik.setSubmitting(false);
-    api.addData(values)
-      .then((res) => {
-        console.log(res)
-        navigate("/admin/feasibility")
-      })
-      .catch((err) => {
-        console.log(err)
-        setError("error")
-      })
-      .finally(() => {
-        formik.resetForm();
-      })
+    addData(values, setError)
+    formik.resetForm();
   }
 
   const formik = useFormik({

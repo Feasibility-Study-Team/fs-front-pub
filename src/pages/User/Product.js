@@ -1,12 +1,29 @@
-import { useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { airflowImg, hepaImg, lawnmowerImg, scleanerImg } from "../../assets"
 import { DescriptionProduct, HeadProduct, ProductHomepage } from "../../components"
 import { styles } from "../../constant"
+import { HomeContext } from "../../context/Home"
+import api from "../../controller/inventorController"
 
 const Product = () => {
+    const { product } = useContext(HomeContext)
+    const { id } = useParams()
+    const [data, setData] = useState(null)
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+    }, [id])
+
+    useEffect(() => {
+        api.getAlatId(id)
+            .then((res) => {
+                console.log(res?.data)
+                setData(res?.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [id])
     const response = {
         msg: "sukses",
         alat: {
@@ -83,28 +100,29 @@ const Product = () => {
     }
     return (
         <div className="w-full overflow-hidden">
+            {console.log("data", data)}
             <div className={`w-full bg-white ${styles.flexCenter} ${styles.paddingX} ${styles.paddingY}`}>
                 <HeadProduct
-                    category={response.alat.category}
-                    desc={response.alat.desc}
-                    img={response.alat.img[0].img}
-                    name={response.alat.nama_alat}
-                    price={response.alat.price}
-                    rating={response.alat.rating}
+                    category={response?.category || "Teknologi Tepat Guna"}
+                    desc={""}
+                    img={data?.photo_alat[0]?.photo || lawnmowerImg}
+                    name={data?.nama_alat}
+                    price={null}
+                    rating={response.alat.rating || null}
                 />
             </div>
             <div className={`w-full bg-white ${styles.flexCenter} ${styles.paddingX} sm:pt-16 sm:pb-52 pt-6 pb-12`}>
                 <DescriptionProduct
-                    imgs={response.alat.img}
-                    desc={response.alat.feasibilitydesc}
-                    spec={response.alat.spec}
-                    review={response.alat.review}
+                    imgs={data?.photo_alat}
+                    desc={data?.deskripsi_alat}
+                    spec={data?.spesifikasi_alat}
+                    review={data?.review}
                 />
             </div>
             <div className={`w-full bg-placeholder ${styles.flexCenter} ${styles.paddingX} ${styles.paddingY}`}>
                 <ProductHomepage
                     title="You may also like"
-                    data={response.product} />
+                    data={product} />
             </div>
         </div>
     )

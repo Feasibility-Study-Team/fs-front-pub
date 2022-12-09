@@ -21,7 +21,7 @@ const HeadProduct = ({ category, name, price, desc, rating, img }) => {
                 <div className={`${styles.gradientbg1} top-32 left-12 absolute z-0`}>
                 </div>
                 <div className="w-full h-full rounded-2xl bg-placeholder p-5 flex items-center relative z-10">
-                    <img src={img} alt={name} className="w-full object-cover object-center" />
+                    <img src={img} alt={name} className="w-full h-full object-cover object-center rounded-lg" />
                 </div>
             </div>
 

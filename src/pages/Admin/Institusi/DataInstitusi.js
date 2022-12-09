@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { BsPlus } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import { Profile } from "../../../assets"
 import { HeaderAdmin, TableInstitusi } from "../../../components"
 import { styles } from "../../../constant"
-import api from "../../../controller/adminController"
+import { AdminContext } from "../../../context/Admin"
 
 const DataInstitusi = () => {
-  const [data, setData] = useState(null)
+  const { institusi } = useContext(AdminContext)
 
-  useEffect(() => {
-    api.getInstitusi()
-        .then((res) => {
-            console.log(res)
-            setData(res)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}, [])
   return (
     <div className={styles.adminStyle}>
       <HeaderAdmin title="Data Institusi" name="Muhammad Harsin" icon={Profile} />
@@ -30,7 +20,7 @@ const DataInstitusi = () => {
           Tambah Institusi
         </Link>
       </div>
-      <TableInstitusi title="Data Institusi" res={data}/>
+      <TableInstitusi title="Data Institusi" res={institusi} />
     </div>
   )
 }

@@ -14,6 +14,10 @@ import Products from "./Products";
 import InventorNewProject from "./ProtectedInventor/InventorProject/InventorNewProject";
 import LayoutProject from "./ProtectedInventor/InventorProject/LayoutProject";
 import InventorAspek from "./ProtectedInventor/InventorProject/InventorAspek";
+import PengujiMenu from "./ProtectedInventor/PengujiUser/PengujiMenu";
+import PengujiDetailAlat from "./ProtectedInventor/PengujiUser/PengujiDetailAlat";
+import PengujiAspek from "./ProtectedInventor/PengujiUser/PengujiAspek";
+import PengujiReview from "./ProtectedInventor/PengujiUser/PengujiReview";
 
 export {
     Login,
@@ -31,5 +35,9 @@ export {
     Products,
     InventorNewProject,
     LayoutProject,
-    InventorAspek
+    InventorAspek,
+    PengujiMenu,
+    PengujiDetailAlat,
+    PengujiAspek,
+    PengujiReview
 }

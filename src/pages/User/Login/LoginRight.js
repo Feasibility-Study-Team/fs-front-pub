@@ -22,12 +22,11 @@ const LoginRight = () => {
         formik.setSubmitting(false)
         setError(null)
         api.loginInventor(values)
-            .then((res)=>{
+            .then((res) => {
                 localStorage.setItem('token', res?.data?.token)
                 navigate('/')
-                navigate(0)
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err)
                 setError("username/password salah!")
             })

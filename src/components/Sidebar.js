@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom"
-import { DashboardIcon } from "../assets"
+import { LogoRound } from "../assets"
 import { AiFillPieChart } from "react-icons/ai"
 import { MdPersonSearch, MdModelTraining } from "react-icons/md"
 import { RiUserSettingsFill, RiLogoutBoxRFill } from "react-icons/ri"
 import { FaUsers, FaUniversity } from "react-icons/fa"
+import { IoSettings } from "react-icons/io5"
 
 const Sidebar = () => {
   const dataSidebar = [
@@ -33,9 +34,14 @@ const Sidebar = () => {
       link: "/admin/feasibility"
     },
     {
-      name: "institusi Data",
+      name: "Institusi Data",
       icon: <FaUniversity />,
       link: "/admin/institusi"
+    },
+    {
+      name: "Pengujian",
+      icon: <IoSettings />,
+      link: "/admin/pengujian"
     }
   ]
 
@@ -49,7 +55,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar-header flex flex-col bg-sidebar left-0 top-0 bottom-0 h-screen w-[255px] text-sbtext">
       <div className="flex items-center gap-3 font-bold text-lg py-10 px-5">
-        <img src={DashboardIcon} alt="Dashboard icon" />
+        <img src={LogoRound} alt="Dashboard icon" className="w-12 h-12"/>
         <p>Dashboard</p>
       </div>
       <div className="mb-24">

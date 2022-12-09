@@ -67,9 +67,11 @@ const Register = () => {
 
         validationSchema: Yup.object({
             username: Yup.string()
-                .required('Username harus di isi'),
+                .required('Username harus di isi')
+                .matches(/^\S*$/, "Username tidak bisa menggunakan spasi"),
             password: Yup.string()
-                .required('Password harus di isi'),
+                .required('Password harus di isi')
+                .min(6, "Password minimal 6 Karakter"),
             nama_lengkap: Yup.string()
                 .required('Nama lengkap harus di isi'),
             id_institusi: Yup.string()
