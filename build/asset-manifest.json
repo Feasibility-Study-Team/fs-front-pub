@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.310258a4.css",
+    "main.js": "/static/js/main.2040545f.js",
+    "static/js/787.2e080257.chunk.js": "/static/js/787.2e080257.chunk.js",
+    "static/media/result.png": "/static/media/result.13c8e665d5f0c00a9f94.png",
+    "static/media/laptop.png": "/static/media/laptop.aeaa28725b7f4c95ec7c.png",
+    "static/media/alat.jpg": "/static/media/alat.6a7a79af454b189ef46a.jpg",
+    "static/media/opinion.jpg": "/static/media/opinion.d80327e8864257d54f54.jpg",
+    "static/media/process.jpg": "/static/media/process.0c51d24eddb6e923a63e.jpg",
+    "static/media/headbg.png": "/static/media/headbg.0995ef25a2af9c2fb3f0.png",
+    "static/media/statusImg.png": "/static/media/statusImg.5aaa69faa2646ed69767.png",
+    "static/media/technical.png": "/static/media/technical.e1d533d27a67f7399e17.png",
+    "static/media/upn.png": "/static/media/upn.b80447ca71836dcc4dfa.png",
+    "static/media/hepa.png": "/static/media/hepa.838fff7ea265582dce91.png",
+    "static/media/economic.png": "/static/media/economic.9fe56317f233bcfde2b8.png",
+    "static/media/schedule.png": "/static/media/schedule.50211d515b09a40cfe78.png",
+    "static/media/legality.png": "/static/media/legality.b3727e4a2de3034e9c14.png",
+    "static/media/operational.png": "/static/media/operational.be08bf4061ac310e6447.png",
+    "static/media/profile_default.png": "/static/media/profile_default.b23b2f839ee21ecb5f53.png",
+    "static/media/airflow.png": "/static/media/airflow.4617ffbfe451f6eaf415.png",
+    "static/media/lawnmower.png": "/static/media/lawnmower.8094dccce0641d416e2d.png",
+    "static/media/scleaner.png": "/static/media/scleaner.97d12f5d2fc7c84444f0.png",
+    "index.html": "/index.html",
+    "main.310258a4.css.map": "/static/css/main.310258a4.css.map",
+    "main.2040545f.js.map": "/static/js/main.2040545f.js.map",
+    "787.2e080257.chunk.js.map": "/static/js/787.2e080257.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.310258a4.css",
+    "static/js/main.2040545f.js"
+  ]
+}

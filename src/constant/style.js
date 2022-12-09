@@ -2,8 +2,21 @@ const styles = {
     boxWidth: "xl:max-w-[1140px] w-full",
     boxContent: "xl:max-w-[1440px] w-full",
     boxMd: "md:max-w-[768px] w-full",
+    adminStyle: "py-10 px-8 flex flex-col w-full",
 
-    btnStyle1: "w-[180px] h-[55px] bg-darkBlue text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
+    editFormContent: "flex flex-row gap-4 items-start",
+    editLabel: "w-24",
+    editInput: "h-8 w-96 px-2",
+    errorInput: "font-normal text-red-500",
+
+    inventorSide: "w-full h-40 bg-placeholder rounded-lg p-6 flex justify-center items-center hover:bg-blue-200 text-cardtext",
+    inventorSideActive: "w-full h-40 bg-blueinventor rounded-lg p-6 flex justify-center items-center !text-white",
+
+    gradientbg1: "bg-[#FF3C78] h-[224px] w-[224px] mix-blend-normal opacity-50 blur-2xl rounded-full",
+    gradientbg2: "bg-[#315BFF] h-[224px] w-[224px] mix-blend-hard-light opacity-70 blur-2xl rounded-full",
+
+    btnStyle1: "w-48 h-12 bg-darkBlue text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
+    btnStyle2: "w-48 h-12 bg-[#02BE83] text-white rounded btn-shadow hover:scale-105 ease-in-out duration-300",
 
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",
